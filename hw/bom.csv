@@ -1,0 +1,11 @@
+Part,Details,Symbol,Price,Quantity,Part Number
+esp32-c3,wroom-02,U1,1.9,1,1965-ESP32-C3-WROOM-02-N4CT-ND
+e-ink,"200x200, bw, 1.54in",,7.2,1,2544-AES200200A00-1.54ENRS-ND
+ffc connector,"24-pos, 0.5mm pitch",J1,0.67,1,2073-FFC2B28-24-GCT-ND
+1uf/25v cap,series 0603,C1...C7,0.06,7,0603B105K250XD
+4.7uf/25v cap,series 0603,"C8, C9",,2,
+schottky diode,30V 500mA,D1...D3,0.21,3,MBR0530TPMSCT-ND
+inductor,"47uH, 570mA",L1,0.35,1,587-1670-1-ND
+nmos,,Q1,,1,SI1308EDL-T1-GE3CT-ND
+resistor 1M,series 0603,R1,,1,
+resistor 2.2,series 0603,R2,,1,
