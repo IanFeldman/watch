@@ -20,6 +20,7 @@ accelerometer+temp,i2c,,3.12,1,497-LIS2DU12TRCT-ND
 linear regulator,,,0.35,1,296-28778-1-ND
 battery,"3.7V, 500mAh",,7.95,1,1528-1841-ND
 jst ph connector,,,0.58,1,455-S2B-PH-SM4-TBCT-ND
+usb connector,micro,,0.57,1,609-4616-1-ND
 charger,,,0.76,1,MCP73831T-2ACI/OTCT-ND
 led,series 0603,LED1,,1,
 side button,"mom, no","S1, S2",0.29,2,P16763CT-ND
