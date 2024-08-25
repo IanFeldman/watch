@@ -13,7 +13,7 @@ resistor 2.2,series 0603,R2,,1,
 resistor 10k,series 0603,"R3, R6, R7",,3,
 resistor 1k,series 0603,"R4, R5",,2,
 resistor 470,series 0603,R8,,1,
-push button,"mom, no",SW1,,1,4809-SKQGADE010CT-ND
+push button,"mom, no",SW1,,1,CKN12330-1-ND
 uart connector,"4-pos, 2.54mm pitch",,0.56,1,S5440-ND
 rtc,i2c,,1.49,1,568-12404-1-ND
 accelerometer+temp,i2c,,3.12,1,497-LIS2DU12TRCT-ND

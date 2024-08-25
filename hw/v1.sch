@@ -5764,93 +5764,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="SMD-BUTTON_4P-5.2X5.2X1.5MM-SKQGADE010_">
-<packages>
-<package name="SW4-SMD-5.2X5.2X1.5MM">
-<wire x1="2.6" y1="-1.46863125" x2="1.46863125" y2="-2.6" width="0.127" layer="51"/>
-<wire x1="1.5" y1="-2.6" x2="-1.1" y2="-2.6" width="0.127" layer="21"/>
-<wire x1="-1.1" y1="-2.6" x2="-1.45981875" y2="-2.6" width="0.127" layer="21"/>
-<wire x1="-1.45981875" y1="-2.6" x2="-2.6" y2="-1.45981875" width="0.127" layer="51"/>
-<wire x1="-2.6" y1="1.395840625" x2="-1.395840625" y2="2.6" width="0.127" layer="51"/>
-<wire x1="-1.4" y1="2.6" x2="1.5" y2="2.6" width="0.127" layer="21"/>
-<wire x1="1.433809375" y1="2.6" x2="2.6" y2="1.433809375" width="0.127" layer="51"/>
-<rectangle x1="-2.50085" y1="-2.60088125" x2="2.6" y2="2.6" layer="39"/>
-<text x="-2.303640625" y="2.80443125" size="0.890409375" layer="25" ratio="11">&gt;NAME</text>
-<text x="-1.700309375" y="-0.10001875" size="0.635115625" layer="27" ratio="11">&gt;VALUE</text>
-<wire x1="-1.4" y1="2.6" x2="-2.4" y2="1.6" width="0.127" layer="21"/>
-<wire x1="1.5" y1="2.6" x2="2.4" y2="1.7" width="0.127" layer="21"/>
-<wire x1="1.5" y1="-2.6" x2="2.4" y2="-1.7" width="0.127" layer="21"/>
-<wire x1="-1.45981875" y1="-2.6" x2="-1.5" y2="-2.6" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="-2.6" x2="-2.4" y2="-1.7" width="0.127" layer="21"/>
-<smd name="1" x="-3" y="1.85" dx="1" dy="0.7" layer="1"/>
-<smd name="2" x="3" y="1.85" dx="1" dy="0.7" layer="1"/>
-<smd name="3" x="-3" y="-1.85" dx="1" dy="0.7" layer="1"/>
-<smd name="4" x="3" y="-1.85" dx="1" dy="0.7" layer="1"/>
-</package>
-</packages>
-<symbols>
-<symbol name="BOTTON-4P">
-<wire x1="-5.08" y1="5.08" x2="5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="5.08" y1="5.08" x2="5.08" y2="2.54" width="0.254" layer="94"/>
-<wire x1="5.08" y1="2.54" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-2.54" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="5.08" y1="-5.08" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
-<text x="-5.085890625" y="5.085890625" size="1.27146875" layer="95" ratio="10">&gt;NAME</text>
-<text x="-5.08836875" y="-6.360459375" size="1.272090625" layer="96" ratio="10">&gt;VALUE</text>
-<wire x1="-5.08" y1="-5.08" x2="-5.08" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="-2.54" x2="-5.08" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="2.54" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="2.54" x2="0" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="0" y1="2.54" x2="5.08" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="0" y1="2.54" x2="0" y2="1.27" width="0.1524" layer="94"/>
-<wire x1="0" y1="1.27" x2="-1.27" y2="-0.762" width="0.1524" layer="94"/>
-<wire x1="0" y1="-1.27" x2="0" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="0" y1="-2.54" x2="5.08" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="0" y1="-2.54" x2="-5.08" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="-6.35" y1="2.54" x2="-5.08" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="-6.35" y1="-2.54" x2="-5.08" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="6.35" y1="-2.54" x2="5.08" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="6.35" y1="2.54" x2="5.08" y2="2.54" width="0.1524" layer="94"/>
-<circle x="-1.27" y="-0.762" radius="0.1524" width="0" layer="94"/>
-<circle x="0" y="-1.27" radius="0.1524" width="0" layer="94"/>
-<pin name="A0" x="-8.89" y="2.54" length="short"/>
-<pin name="A1" x="8.89" y="2.54" length="short" rot="R180"/>
-<pin name="B0" x="-8.89" y="-2.54" length="short"/>
-<pin name="B1" x="8.89" y="-2.54" length="short" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="SMD-BUTTON(4P-5.2X5.2X1.5MM-SKQGADE010)" prefix="SW">
-<description>311020017 &lt;a href="https://pricing.snapeda.com/parts/SKQGADE010/ALPS/view-part?ref=eda"&gt;Check availability&lt;/a&gt;</description>
-<gates>
-<gate name="G$1" symbol="BOTTON-4P" x="0" y="0"/>
-</gates>
-<devices>
-<device name="-SKQGADE010" package="SW4-SMD-5.2X5.2X1.5MM">
-<connects>
-<connect gate="G$1" pin="A0" pad="1"/>
-<connect gate="G$1" pin="A1" pad="2"/>
-<connect gate="G$1" pin="B0" pad="3"/>
-<connect gate="G$1" pin="B1" pad="4"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="AVAILABILITY" value="In Stock"/>
-<attribute name="CHECK_PRICES" value="https://www.snapeda.com/parts/SKQGADE010/ALPS/view-part/?ref=eda"/>
-<attribute name="DESCRIPTION" value=" Switch Tactile N.O. SPST Round Button Gull Wing 0.05A 12VDC 2.55N SMD T/R "/>
-<attribute name="MF" value="ALPS"/>
-<attribute name="MP" value="SKQGADE010"/>
-<attribute name="PACKAGE" value="SMD-4 ALPS"/>
-<attribute name="PRICE" value="None"/>
-<attribute name="PURCHASE-URL" value="https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=106172&amp;manufacturer=ALPS&amp;part_name=SKQGADE010&amp;search_term=None"/>
-<attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/SKQGADE010/ALPS/view-part/?ref=snap"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-Capacitors" urn="urn:adsk.eagle:library:510">
 <description>&lt;h3&gt;SparkFun Capacitors&lt;/h3&gt;
 This library contains capacitors. 
@@ -9271,6 +9184,78 @@ Source: www.kingbright.com</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="PTS636_SM25F_SMTR_LFS">
+<packages>
+<package name="PTS636SM25FSMTRLFS">
+<description>&lt;b&gt;PTS636 SM25F SMTR LFS-2&lt;/b&gt;&lt;br&gt;
+</description>
+<text x="-0.55" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="-0.55" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-3.05" y1="1.85" x2="3.05" y2="1.85" width="0.2" layer="51"/>
+<wire x1="3.05" y1="1.85" x2="3.05" y2="-1.85" width="0.2" layer="51"/>
+<wire x1="3.05" y1="-1.85" x2="-3.05" y2="-1.85" width="0.2" layer="51"/>
+<wire x1="-3.05" y1="-1.85" x2="-3.05" y2="1.85" width="0.2" layer="51"/>
+<wire x1="-6.6" y1="2.85" x2="5.5" y2="2.85" width="0.1" layer="51"/>
+<wire x1="5.5" y1="2.85" x2="5.5" y2="-2.85" width="0.1" layer="51"/>
+<wire x1="5.5" y1="-2.85" x2="-6.6" y2="-2.85" width="0.1" layer="51"/>
+<wire x1="-6.6" y1="-2.85" x2="-6.6" y2="2.85" width="0.1" layer="51"/>
+<wire x1="-3.05" y1="-1.2" x2="-3.05" y2="-1.8" width="0.1" layer="21"/>
+<wire x1="-3.05" y1="-1.8" x2="3.05" y2="-1.85" width="0.1" layer="21"/>
+<wire x1="3.05" y1="-1.85" x2="3.05" y2="-1.2" width="0.1" layer="21"/>
+<wire x1="3.05" y1="-1.2" x2="3.05" y2="-1.2" width="0.1" layer="21"/>
+<wire x1="-3.05" y1="1.2" x2="-3.05" y2="1.85" width="0.1" layer="21"/>
+<wire x1="-3.05" y1="1.85" x2="3.05" y2="1.85" width="0.1" layer="21"/>
+<wire x1="3.05" y1="1.85" x2="3.05" y2="1.2" width="0.1" layer="21"/>
+<wire x1="-5.6" y1="-0.2" x2="-5.6" y2="-0.2" width="0.1" layer="21"/>
+<wire x1="-5.6" y1="-0.2" x2="-5.5" y2="-0.2" width="0.1" layer="21" curve="180"/>
+<wire x1="-5.5" y1="-0.2" x2="-5.5" y2="-0.2" width="0.1" layer="21"/>
+<wire x1="-5.5" y1="-0.2" x2="-5.6" y2="-0.2" width="0.1" layer="21" curve="180"/>
+<smd name="1" x="-3.3" y="0" dx="2.4" dy="2.1" layer="1"/>
+<smd name="2" x="3.3" y="0" dx="2.4" dy="2.1" layer="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="PTS636_SM25F_SMTR_LFS">
+<wire x1="5.08" y1="2.54" x2="17.78" y2="2.54" width="0.254" layer="94"/>
+<wire x1="17.78" y1="-5.08" x2="17.78" y2="2.54" width="0.254" layer="94"/>
+<wire x1="17.78" y1="-5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<text x="19.05" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="19.05" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="COM" x="0" y="0" length="middle"/>
+<pin name="NO" x="0" y="-2.54" length="middle"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="PTS636_SM25F_SMTR_LFS" prefix="J">
+<description>&lt;b&gt;Tactile Switches Tact 50mA 12VDC, 6.0x3.5, 2.5mm H, 180gf, F leads, No ground pin, White Actuator&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM25F SMTR LFS.pdf"&gt; Datasheet &lt;/a&gt;  &lt;a href="https://pricing.snapeda.com/parts/PTS636%20SM25F%20SMTR%20LFS/C%26K/view-part?ref=eda"&gt;Check availability&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="PTS636_SM25F_SMTR_LFS" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="PTS636SM25FSMTRLFS">
+<connects>
+<connect gate="G$1" pin="COM" pad="1"/>
+<connect gate="G$1" pin="NO" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="In Stock"/>
+<attribute name="CHECK_PRICES" value="https://www.snapeda.com/parts/PTS636%20SM25F%20SMTR%20LFS/C%2526K/view-part/?ref=eda"/>
+<attribute name="DESCRIPTION" value=" Tactile Switch SPST-NO Top Actuated Surface Mount "/>
+<attribute name="MF" value="C&amp;K"/>
+<attribute name="MP" value="PTS636 SM25F SMTR LFS"/>
+<attribute name="PACKAGE" value="None"/>
+<attribute name="PRICE" value="None"/>
+<attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/PTS636%20SM25F%20SMTR%20LFS/C%2526K/view-part/?ref=snap"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -9305,7 +9290,6 @@ Source: www.kingbright.com</description>
 <part name="SUPPLY6" library="Tutorial - Fusion 360" library_urn="urn:adsk.eagle:library:16997205" deviceset="GND" device="" value="GND"/>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1M"/>
 <part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="2.2"/>
-<part name="SW1" library="SMD-BUTTON_4P-5.2X5.2X1.5MM-SKQGADE010_" deviceset="SMD-BUTTON(4P-5.2X5.2X1.5MM-SKQGADE010)" device="-SKQGADE010"/>
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="10k"/>
 <part name="SUPPLY7" library="Tutorial - Fusion 360" library_urn="urn:adsk.eagle:library:16997205" deviceset="GND" device="" value="GND"/>
 <part name="SUPPLY8" library="Tutorial - Fusion 360" library_urn="urn:adsk.eagle:library:16997205" deviceset="GND" device="" value="GND"/>
@@ -9345,6 +9329,7 @@ Source: www.kingbright.com</description>
 <part name="C16" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="0.1UF" device="-0603-25V-(+80/-20%)" package3d_urn="urn:adsk.eagle:package:41385090/1" value="0.1uF"/>
 <part name="S1" library="EVQ-P7A01P" deviceset="EVQ-P7A01P" device=""/>
 <part name="S2" library="EVQ-P7A01P" deviceset="EVQ-P7A01P" device=""/>
+<part name="J4" library="PTS636_SM25F_SMTR_LFS" deviceset="PTS636_SM25F_SMTR_LFS" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -9448,9 +9433,6 @@ Source: www.kingbright.com</description>
 <instance part="R2" gate="G$1" x="-43.18" y="33.02" smashed="yes" rot="R90">
 <attribute name="NAME" x="-44.6786" y="36.83" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="-44.958" y="29.21" size="1.778" layer="96" rot="R180"/>
-</instance>
-<instance part="SW1" gate="G$1" x="-55.88" y="-60.96" smashed="yes">
-<attribute name="NAME" x="-60.965890625" y="-55.874109375" size="1.27146875" layer="95" ratio="10"/>
 </instance>
 <instance part="R3" gate="G$1" x="-83.82" y="-53.34" smashed="yes" rot="R90">
 <attribute name="NAME" x="-85.3186" y="-49.53" size="1.778" layer="95" rot="R180"/>
@@ -9601,6 +9583,10 @@ Source: www.kingbright.com</description>
 <attribute name="NAME" x="2.54" y="-81.28" size="1.27" layer="95"/>
 <attribute name="VALUE" x="2.54" y="-86.36" size="1.27" layer="96"/>
 </instance>
+<instance part="J4" gate="G$1" x="-66.04" y="-58.42" smashed="yes">
+<attribute name="NAME" x="-46.99" y="-50.8" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="-46.99" y="-53.34" size="1.778" layer="96" align="center-left"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -9649,9 +9635,9 @@ Source: www.kingbright.com</description>
 <label x="76.2" y="91.44" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="G$1" pin="IO4"/>
-<wire x1="-17.78" y1="0" x2="-27.94" y2="0" width="0.1524" layer="91"/>
-<label x="-27.94" y="0" size="1.778" layer="95"/>
+<pinref part="U1" gate="G$1" pin="IO7"/>
+<wire x1="17.78" y1="10.16" x2="25.4" y2="10.16" width="0.1524" layer="91"/>
+<label x="20.32" y="10.16" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RES" class="0">
@@ -9661,9 +9647,9 @@ Source: www.kingbright.com</description>
 <label x="76.2" y="88.9" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="G$1" pin="IO0"/>
-<wire x1="-17.78" y1="10.16" x2="-27.94" y2="10.16" width="0.1524" layer="91"/>
-<label x="-27.94" y="10.16" size="1.778" layer="95"/>
+<pinref part="U1" gate="G$1" pin="IO6"/>
+<wire x1="-17.78" y1="-5.08" x2="-27.94" y2="-5.08" width="0.1524" layer="91"/>
+<label x="-27.94" y="-5.08" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="D/C" class="0">
@@ -9673,9 +9659,9 @@ Source: www.kingbright.com</description>
 <label x="76.2" y="86.36" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="G$1" pin="IO3"/>
-<wire x1="-17.78" y1="2.54" x2="-27.94" y2="2.54" width="0.1524" layer="91"/>
-<label x="-27.94" y="2.54" size="1.778" layer="95"/>
+<pinref part="U1" gate="G$1" pin="IO4"/>
+<wire x1="-17.78" y1="0" x2="-27.94" y2="0" width="0.1524" layer="91"/>
+<label x="-27.94" y="0" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CS" class="0">
@@ -9685,9 +9671,9 @@ Source: www.kingbright.com</description>
 <label x="76.2" y="83.82" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="G$1" pin="IO10"/>
-<wire x1="17.78" y1="2.54" x2="25.4" y2="2.54" width="0.1524" layer="91"/>
-<label x="20.32" y="2.54" size="1.778" layer="95"/>
+<pinref part="U1" gate="G$1" pin="IO0"/>
+<wire x1="-17.78" y1="10.16" x2="-27.94" y2="10.16" width="0.1524" layer="91"/>
+<label x="-27.94" y="10.16" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SCK" class="0">
@@ -9697,9 +9683,9 @@ Source: www.kingbright.com</description>
 <label x="76.2" y="81.28" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="G$1" pin="IO6"/>
-<wire x1="-17.78" y1="-5.08" x2="-27.94" y2="-5.08" width="0.1524" layer="91"/>
-<label x="-27.94" y="-5.08" size="1.778" layer="95"/>
+<pinref part="U1" gate="G$1" pin="IO3"/>
+<wire x1="-17.78" y1="2.54" x2="-27.94" y2="2.54" width="0.1524" layer="91"/>
+<label x="-27.94" y="2.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
@@ -9709,9 +9695,9 @@ Source: www.kingbright.com</description>
 <label x="76.2" y="78.74" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="G$1" pin="IO7"/>
-<wire x1="17.78" y1="10.16" x2="25.4" y2="10.16" width="0.1524" layer="91"/>
-<label x="20.32" y="10.16" size="1.778" layer="95"/>
+<pinref part="U1" gate="G$1" pin="IO10"/>
+<wire x1="17.78" y1="2.54" x2="25.4" y2="2.54" width="0.1524" layer="91"/>
+<label x="20.32" y="2.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="3V3" class="0">
@@ -9896,14 +9882,13 @@ Source: www.kingbright.com</description>
 <pinref part="R2" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="SW1" gate="G$1" pin="B0"/>
-<wire x1="-64.77" y1="-63.5" x2="-66.04" y2="-63.5" width="0.1524" layer="91"/>
-<wire x1="-66.04" y1="-63.5" x2="-66.04" y2="-68.58" width="0.1524" layer="91"/>
 <pinref part="SUPPLY7" gate="G$1" pin="GND"/>
 <wire x1="-83.82" y1="-66.04" x2="-83.82" y2="-68.58" width="0.1524" layer="91"/>
 <wire x1="-83.82" y1="-68.58" x2="-66.04" y2="-68.58" width="0.1524" layer="91"/>
-<junction x="-66.04" y="-68.58"/>
 <pinref part="C11" gate="G$1" pin="2"/>
+<junction x="-66.04" y="-68.58"/>
+<pinref part="J4" gate="G$1" pin="NO"/>
+<wire x1="-66.04" y1="-60.96" x2="-66.04" y2="-68.58" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="SUPPLY8" gate="G$1" pin="GND"/>
@@ -10036,13 +10021,6 @@ Source: www.kingbright.com</description>
 <pinref part="C11" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="N$8" class="0">
-<segment>
-<pinref part="SW1" gate="G$1" pin="A0"/>
-<wire x1="-64.77" y1="-58.42" x2="-71.12" y2="-58.42" width="0.1524" layer="91"/>
-<pinref part="R4" gate="G$1" pin="1"/>
-</segment>
-</net>
 <net name="N$9" class="0">
 <segment>
 <wire x1="-3.81" y1="-58.42" x2="-2.54" y2="-58.42" width="0.1524" layer="91"/>
@@ -10073,25 +10051,25 @@ Source: www.kingbright.com</description>
 <label x="-91.44" y="2.54" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="G$1" pin="IO19"/>
-<label x="20.32" y="-2.54" size="1.778" layer="95"/>
-<wire x1="17.78" y1="-2.54" x2="45.72" y2="-2.54" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="-2.54" x2="45.72" y2="2.54" width="0.1524" layer="91"/>
-<pinref part="R7" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="SCL" class="0">
-<segment>
 <pinref part="U1" gate="G$1" pin="IO18"/>
 <label x="20.32" y="0" size="1.778" layer="95"/>
 <wire x1="17.78" y1="0" x2="38.1" y2="0" width="0.1524" layer="91"/>
 <wire x1="38.1" y1="0" x2="38.1" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="1"/>
 </segment>
+</net>
+<net name="SCL" class="0">
 <segment>
 <pinref part="U2" gate="A" pin="SCL"/>
 <wire x1="-96.52" y1="5.08" x2="-91.44" y2="5.08" width="0.1524" layer="91"/>
 <label x="-91.44" y="5.08" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="IO19"/>
+<label x="20.32" y="-2.54" size="1.778" layer="95"/>
+<wire x1="17.78" y1="-2.54" x2="45.72" y2="-2.54" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="-2.54" x2="45.72" y2="2.54" width="0.1524" layer="91"/>
+<pinref part="R7" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="RTC_INT" class="0">
@@ -10205,6 +10183,13 @@ Source: www.kingbright.com</description>
 <pinref part="S2" gate="G$1" pin="1"/>
 <wire x1="-5.08" y1="-83.82" x2="-7.62" y2="-83.82" width="0.1524" layer="91"/>
 <wire x1="-3.81" y1="-83.82" x2="-2.54" y2="-83.82" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="R4" gate="G$1" pin="1"/>
+<pinref part="J4" gate="G$1" pin="COM"/>
+<wire x1="-71.12" y1="-58.42" x2="-66.04" y2="-58.42" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
