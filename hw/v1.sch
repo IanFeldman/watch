@@ -9256,6 +9256,88 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 </deviceset>
 </devicesets>
 </library>
+<library name="MCP9700T-E_TT">
+<packages>
+<package name="SOT95P237X112-3N">
+<wire x1="0.7112" y1="0.5842" x2="0.7112" y2="1.524" width="0.1524" layer="21"/>
+<wire x1="-0.2794" y1="-1.524" x2="0.7112" y2="-1.524" width="0.1524" layer="21"/>
+<wire x1="0.7112" y1="-1.524" x2="0.7112" y2="-0.5842" width="0.1524" layer="21"/>
+<wire x1="0.7112" y1="1.524" x2="0.3048" y2="1.524" width="0.1524" layer="21"/>
+<wire x1="0.3048" y1="1.524" x2="-0.2794" y2="1.524" width="0.1524" layer="21"/>
+<wire x1="0.3048" y1="1.524" x2="-0.1016" y2="1.2446" width="0.1524" layer="21" curve="-110"/>
+<wire x1="-0.7112" y1="-1.524" x2="0.7112" y2="-1.524" width="0" layer="51"/>
+<wire x1="0.7112" y1="-1.524" x2="0.7112" y2="-0.254" width="0" layer="51"/>
+<wire x1="0.7112" y1="-0.254" x2="0.7112" y2="0.254" width="0" layer="51"/>
+<wire x1="0.7112" y1="0.254" x2="0.7112" y2="1.524" width="0" layer="51"/>
+<wire x1="0.7112" y1="1.524" x2="0.3048" y2="1.524" width="0" layer="51"/>
+<wire x1="0.3048" y1="1.524" x2="-0.3048" y2="1.524" width="0" layer="51"/>
+<wire x1="-0.3048" y1="1.524" x2="-0.7112" y2="1.524" width="0" layer="51"/>
+<wire x1="-0.7112" y1="1.524" x2="-0.7112" y2="1.1938" width="0" layer="51"/>
+<wire x1="-0.7112" y1="1.1938" x2="-0.7112" y2="0.7112" width="0" layer="51"/>
+<wire x1="-0.7112" y1="0.7112" x2="-0.7112" y2="-0.7112" width="0" layer="51"/>
+<wire x1="-0.7112" y1="1.1938" x2="-1.3208" y2="1.1938" width="0" layer="51"/>
+<wire x1="-1.3208" y1="1.1938" x2="-1.3208" y2="0.7112" width="0" layer="51"/>
+<wire x1="-1.3208" y1="0.7112" x2="-0.7112" y2="0.7112" width="0" layer="51"/>
+<wire x1="-0.7112" y1="-1.524" x2="-0.7112" y2="-1.1938" width="0" layer="51"/>
+<wire x1="-0.7112" y1="-1.1938" x2="-0.7112" y2="-0.7112" width="0" layer="51"/>
+<wire x1="-0.7112" y1="-0.7112" x2="-1.3208" y2="-0.7112" width="0" layer="51"/>
+<wire x1="-1.3208" y1="-0.7112" x2="-1.3208" y2="-1.1938" width="0" layer="51"/>
+<wire x1="-1.3208" y1="-1.1938" x2="-0.7112" y2="-1.1938" width="0" layer="51"/>
+<wire x1="0.7112" y1="-0.254" x2="1.3208" y2="-0.254" width="0" layer="51"/>
+<wire x1="1.3208" y1="-0.254" x2="1.3208" y2="0.254" width="0" layer="51"/>
+<wire x1="1.3208" y1="0.254" x2="0.7112" y2="0.254" width="0" layer="51"/>
+<wire x1="0.3048" y1="1.524" x2="-0.3048" y2="1.524" width="0" layer="51" curve="-180"/>
+<text x="-26.513" y="19.4969" size="15.9888" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
+<text x="-26.5921" y="-34.2171" size="16.0336" layer="27" ratio="10" rot="SR0">&gt;VALUE</text>
+<smd name="1" x="-1.0922" y="0.9398" dx="1.3208" dy="0.5588" layer="1"/>
+<smd name="2" x="-1.0922" y="-0.9398" dx="1.3208" dy="0.5588" layer="1"/>
+<smd name="3" x="1.0922" y="0" dx="1.3208" dy="0.508" layer="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="MCP9700T-E/TT">
+<wire x1="-12.7" y1="10.16" x2="12.7" y2="10.16" width="0.41" layer="94"/>
+<wire x1="12.7" y1="10.16" x2="12.7" y2="-10.16" width="0.41" layer="94"/>
+<wire x1="12.7" y1="-10.16" x2="-12.7" y2="-10.16" width="0.41" layer="94"/>
+<wire x1="-12.7" y1="-10.16" x2="-12.7" y2="10.16" width="0.41" layer="94"/>
+<text x="-12.7" y="11.16" size="2.0828" layer="95" ratio="10" rot="SR0">&gt;NAME</text>
+<text x="-12.7" y="-14.16" size="2.0828" layer="96" ratio="10" rot="SR0">&gt;VALUE</text>
+<pin name="VDD" x="17.78" y="7.62" length="middle" direction="pwr" rot="R180"/>
+<pin name="VOUT" x="17.78" y="2.54" length="middle" direction="out" rot="R180"/>
+<pin name="GND" x="17.78" y="-5.08" length="middle" direction="pwr" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="MCP9700T-E/TT">
+<description> &lt;a href="https://pricing.snapeda.com/parts/MCP9700T-E/TT/Microchip/view-part?ref=eda"&gt;Check availability&lt;/a&gt;</description>
+<gates>
+<gate name="A" symbol="MCP9700T-E/TT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT95P237X112-3N">
+<connects>
+<connect gate="A" pin="GND" pad="3"/>
+<connect gate="A" pin="VDD" pad="1"/>
+<connect gate="A" pin="VOUT" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="In Stock"/>
+<attribute name="CHECK_PRICES" value="https://www.snapeda.com/parts/MCP9700T-E/TT/Microchip/view-part/?ref=eda"/>
+<attribute name="DESCRIPTION" value=" Microchip MCP9700T-E/TT Temperature Sensor 3-Pin SOT-23, -40 - +125 degC | Microchip Technology Inc. MCP9700T-E/TT "/>
+<attribute name="MF" value="Microchip"/>
+<attribute name="MP" value="MCP9700T-E/TT"/>
+<attribute name="PACKAGE" value="SOT-23-3 Microchip"/>
+<attribute name="PRICE" value="None"/>
+<attribute name="PURCHASE-URL" value="https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=134539&amp;manufacturer=Microchip&amp;part_name=MCP9700T-E/TT&amp;search_term=None"/>
+<attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/MCP9700T-E/TT/Microchip/view-part/?ref=snap"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -9330,6 +9412,8 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <part name="S1" library="EVQ-P7A01P" deviceset="EVQ-P7A01P" device=""/>
 <part name="S2" library="EVQ-P7A01P" deviceset="EVQ-P7A01P" device=""/>
 <part name="J4" library="PTS636_SM25F_SMTR_LFS" deviceset="PTS636_SM25F_SMTR_LFS" device=""/>
+<part name="U$2" library="MCP9700T-E_TT" deviceset="MCP9700T-E/TT" device=""/>
+<part name="SUPPLY22" library="Tutorial - Fusion 360" library_urn="urn:adsk.eagle:library:16997205" deviceset="GND" device="" value="GND"/>
 </parts>
 <sheets>
 <sheet>
@@ -9342,6 +9426,7 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <text x="-12.7" y="27.94" size="1.778" layer="91">MCU</text>
 <text x="17.78" y="111.76" size="1.778" layer="91">E-ink Display</text>
 <text x="-10.16" y="-43.18" size="1.778" layer="91">BTN2 used for boot</text>
+<text x="-121.666" y="-11.43" size="1.778" layer="91">Temperature</text>
 </plain>
 <instances>
 <instance part="U1" gate="G$1" x="0" y="0" smashed="yes">
@@ -9587,6 +9672,13 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <attribute name="NAME" x="-46.99" y="-50.8" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="-46.99" y="-53.34" size="1.778" layer="96" align="center-left"/>
 </instance>
+<instance part="U$2" gate="A" x="-116.84" y="-22.86" smashed="yes">
+<attribute name="NAME" x="-129.54" y="-11.7" size="2.0828" layer="95" ratio="10" rot="SR0"/>
+<attribute name="VALUE" x="-129.54" y="-37.02" size="2.0828" layer="96" ratio="10" rot="SR0"/>
+</instance>
+<instance part="SUPPLY22" gate="G$1" x="-91.44" y="-30.48" smashed="yes">
+<attribute name="VALUE" x="-91.313" y="-33.655" size="1.778" layer="96" align="bottom-center"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -9762,6 +9854,12 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <wire x1="149.86" y1="7.62" x2="149.86" y2="10.16" width="0.1524" layer="91"/>
 <junction x="149.86" y="7.62"/>
 <label x="147.32" y="10.16" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$2" gate="A" pin="VDD"/>
+<wire x1="-99.06" y1="-15.24" x2="-91.44" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="-91.44" y1="-15.24" x2="-91.44" y2="-12.7" width="0.1524" layer="91"/>
+<label x="-93.98" y="-12.7" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -9977,6 +10075,11 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <pinref part="S2" gate="G$1" pin="2"/>
 <wire x1="17.78" y1="-83.82" x2="12.7" y2="-83.82" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="U$2" gate="A" pin="GND"/>
+<wire x1="-99.06" y1="-27.94" x2="-91.44" y2="-27.94" width="0.1524" layer="91"/>
+<pinref part="SUPPLY22" gate="G$1" pin="GND"/>
+</segment>
 </net>
 <net name="N$7" class="0">
 <segment>
@@ -10190,6 +10293,18 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <pinref part="R4" gate="G$1" pin="1"/>
 <pinref part="J4" gate="G$1" pin="COM"/>
 <wire x1="-71.12" y1="-58.42" x2="-66.04" y2="-58.42" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="TEMP" class="0">
+<segment>
+<pinref part="U$2" gate="A" pin="VOUT"/>
+<wire x1="-99.06" y1="-20.32" x2="-91.44" y2="-20.32" width="0.1524" layer="91"/>
+<label x="-96.52" y="-20.32" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="IO2"/>
+<wire x1="-17.78" y1="5.08" x2="-27.94" y2="5.08" width="0.1524" layer="91"/>
+<label x="-27.94" y="5.08" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

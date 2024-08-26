@@ -24,3 +24,4 @@ usb connector,micro,,0.57,1,609-4616-1-ND
 charger,,,0.76,1,MCP73831T-2ACI/OTCT-ND
 led,series 0603,LED1,,1,
 side button,"mom, no","S1, S2",0.29,2,P16763CT-ND
+temperature sensor,analog,,0.3,1,MCP9700T-E/TTCT-ND

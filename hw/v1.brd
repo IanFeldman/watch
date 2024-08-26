@@ -1952,6 +1952,45 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 </package>
 </packages>
 </library>
+<library name="MCP9700T-E_TT">
+<packages>
+<package name="SOT95P237X112-3N">
+<wire x1="0.7112" y1="0.5842" x2="0.7112" y2="1.524" width="0.1524" layer="21"/>
+<wire x1="-0.2794" y1="-1.524" x2="0.7112" y2="-1.524" width="0.1524" layer="21"/>
+<wire x1="0.7112" y1="-1.524" x2="0.7112" y2="-0.5842" width="0.1524" layer="21"/>
+<wire x1="0.7112" y1="1.524" x2="0.3048" y2="1.524" width="0.1524" layer="21"/>
+<wire x1="0.3048" y1="1.524" x2="-0.2794" y2="1.524" width="0.1524" layer="21"/>
+<wire x1="0.3048" y1="1.524" x2="-0.1016" y2="1.2446" width="0.1524" layer="21" curve="-110"/>
+<wire x1="-0.7112" y1="-1.524" x2="0.7112" y2="-1.524" width="0" layer="51"/>
+<wire x1="0.7112" y1="-1.524" x2="0.7112" y2="-0.254" width="0" layer="51"/>
+<wire x1="0.7112" y1="-0.254" x2="0.7112" y2="0.254" width="0" layer="51"/>
+<wire x1="0.7112" y1="0.254" x2="0.7112" y2="1.524" width="0" layer="51"/>
+<wire x1="0.7112" y1="1.524" x2="0.3048" y2="1.524" width="0" layer="51"/>
+<wire x1="0.3048" y1="1.524" x2="-0.3048" y2="1.524" width="0" layer="51"/>
+<wire x1="-0.3048" y1="1.524" x2="-0.7112" y2="1.524" width="0" layer="51"/>
+<wire x1="-0.7112" y1="1.524" x2="-0.7112" y2="1.1938" width="0" layer="51"/>
+<wire x1="-0.7112" y1="1.1938" x2="-0.7112" y2="0.7112" width="0" layer="51"/>
+<wire x1="-0.7112" y1="0.7112" x2="-0.7112" y2="-0.7112" width="0" layer="51"/>
+<wire x1="-0.7112" y1="1.1938" x2="-1.3208" y2="1.1938" width="0" layer="51"/>
+<wire x1="-1.3208" y1="1.1938" x2="-1.3208" y2="0.7112" width="0" layer="51"/>
+<wire x1="-1.3208" y1="0.7112" x2="-0.7112" y2="0.7112" width="0" layer="51"/>
+<wire x1="-0.7112" y1="-1.524" x2="-0.7112" y2="-1.1938" width="0" layer="51"/>
+<wire x1="-0.7112" y1="-1.1938" x2="-0.7112" y2="-0.7112" width="0" layer="51"/>
+<wire x1="-0.7112" y1="-0.7112" x2="-1.3208" y2="-0.7112" width="0" layer="51"/>
+<wire x1="-1.3208" y1="-0.7112" x2="-1.3208" y2="-1.1938" width="0" layer="51"/>
+<wire x1="-1.3208" y1="-1.1938" x2="-0.7112" y2="-1.1938" width="0" layer="51"/>
+<wire x1="0.7112" y1="-0.254" x2="1.3208" y2="-0.254" width="0" layer="51"/>
+<wire x1="1.3208" y1="-0.254" x2="1.3208" y2="0.254" width="0" layer="51"/>
+<wire x1="1.3208" y1="0.254" x2="0.7112" y2="0.254" width="0" layer="51"/>
+<wire x1="0.3048" y1="1.524" x2="-0.3048" y2="1.524" width="0" layer="51" curve="-180"/>
+<text x="-26.513" y="19.4969" size="15.9888" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
+<text x="-26.5921" y="-34.2171" size="16.0336" layer="27" ratio="10" rot="SR0">&gt;VALUE</text>
+<smd name="1" x="-1.0922" y="0.9398" dx="1.3208" dy="0.5588" layer="1"/>
+<smd name="2" x="-1.0922" y="-0.9398" dx="1.3208" dy="0.5588" layer="1"/>
+<smd name="3" x="1.0922" y="0" dx="1.3208" dy="0.508" layer="1"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2445,6 +2484,19 @@ design rules under a new name.</description>
 <attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/PTS636%20SM25F%20SMTR%20LFS/C%2526K/view-part/?ref=snap" x="29.734175" y="23.765065625" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="29.734175" y="23.215065625" size="1.27" layer="27" rot="R90" align="center"/>
 </element>
+<element name="U$2" library="MCP9700T-E_TT" package="SOT95P237X112-3N" value="MCP9700T-E/TT" x="18.962759375" y="7.76104375" smashed="yes" rot="R180">
+<attribute name="AVAILABILITY" value="In Stock" x="18.962759375" y="7.76104375" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CHECK_PRICES" value="https://www.snapeda.com/parts/MCP9700T-E/TT/Microchip/view-part/?ref=eda" x="18.962759375" y="7.76104375" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value=" Microchip MCP9700T-E/TT Temperature Sensor 3-Pin SOT-23, -40 - +125 degC | Microchip Technology Inc. MCP9700T-E/TT " x="18.962759375" y="7.76104375" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MF" value="Microchip" x="18.962759375" y="7.76104375" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MP" value="MCP9700T-E/TT" x="18.962759375" y="7.76104375" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="19.31835625" y="7.64379375" size="0.5" layer="25" ratio="10" rot="SR0"/>
+<attribute name="PACKAGE" value="SOT-23-3 Microchip" x="18.962759375" y="7.76104375" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PRICE" value="None" x="18.962759375" y="7.76104375" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PURCHASE-URL" value="https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=134539&amp;manufacturer=Microchip&amp;part_name=MCP9700T-E/TT&amp;search_term=None" x="18.962759375" y="7.76104375" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/MCP9700T-E/TT/Microchip/view-part/?ref=snap" x="18.962759375" y="7.76104375" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="VALUE" x="45.554859375" y="41.97814375" size="16.0336" layer="27" ratio="10" rot="SR180"/>
+</element>
 </elements>
 <signals>
 <signal name="GDR">
@@ -2590,6 +2642,9 @@ design rules under a new name.</description>
 <wire x1="14.702728125" y1="30.983415625" x2="14.725078125" y2="30.983415625" width="0.3" layer="1"/>
 <wire x1="29.002090625" y1="8.443578125" x2="29.002090625" y2="15.914084375" width="0.4" layer="16"/>
 <wire x1="29.002090625" y1="15.914084375" x2="29.01116875" y2="15.9231625" width="0.4" layer="16"/>
+<contactref element="U$2" pad="1"/>
+<wire x1="20.054959375" y1="6.82124375" x2="22.006821875" y2="8.77310625" width="0.4" layer="1"/>
+<wire x1="22.006821875" y1="8.77310625" x2="27.542853125" y2="8.77310625" width="0.4" layer="1"/>
 </signal>
 <signal name="N$3">
 <contactref element="J1" pad="20"/>
@@ -2715,7 +2770,7 @@ design rules under a new name.</description>
 <wire x1="8.857346875" y1="3.142653125" x2="8.473828125" y2="2.759134375" width="0.5" layer="1"/>
 <wire x1="19.183621875" y1="4.028103125" x2="19.183621875" y2="4.478103125" width="0.5" layer="1"/>
 <wire x1="18.958621875" y1="4.703103125" x2="19.183621875" y2="4.478103125" width="0.5" layer="1"/>
-<wire x1="16.28484375" y1="8.422190625" x2="16.2516" y2="8.388946875" width="0.4" layer="1"/>
+<wire x1="16.2516" y1="8.388946875" x2="16.28484375" y2="8.422190625" width="0.4" layer="1"/>
 <wire x1="17.283621875" y1="2.128103125" x2="17.183621875" y2="2.028103125" width="0.4" layer="1"/>
 <wire x1="30.447690625" y1="33.394334375" x2="30.447690625" y2="29.794334375" width="0.4" layer="1"/>
 <wire x1="5.63454375" y1="6.836040625" x2="7.620325" y2="6.836040625" width="0.4" layer="16"/>
@@ -2837,6 +2892,9 @@ design rules under a new name.</description>
 <wire x1="18.22508125" y1="30.98341875" x2="18.225078125" y2="30.983415625" width="0.3" layer="1"/>
 <wire x1="18.225078125" y1="32.590196875" x2="18.225078125" y2="30.983421875" width="0.3" layer="1"/>
 <wire x1="18.225078125" y1="30.983421875" x2="18.22508125" y2="30.98341875" width="0.3" layer="1"/>
+<contactref element="U$2" pad="3"/>
+<wire x1="16.28484375" y1="8.422190625" x2="17.2094125" y2="8.422190625" width="0.4" layer="1"/>
+<wire x1="17.2094125" y1="8.422190625" x2="17.870559375" y2="7.76104375" width="0.4" layer="1"/>
 </signal>
 <signal name="N$7">
 <contactref element="D1" pad="C"/>
@@ -3047,6 +3105,26 @@ design rules under a new name.</description>
 <wire x1="29.734175" y1="22.722840625" x2="29.753978125" y2="22.74264375" width="0.4" layer="1"/>
 <wire x1="26.40041875" y1="19.92760625" x2="26.938940625" y2="19.92760625" width="0.4" layer="16"/>
 <wire x1="26.938940625" y1="19.92760625" x2="29.753978125" y2="22.74264375" width="0.4" layer="16"/>
+</signal>
+<signal name="TEMP">
+<contactref element="U$2" pad="2"/>
+<via x="7.440103125" y="19.821165625" extent="1-16" drill="0.35"/>
+<via x="18.80869375" y="8.68548125" extent="1-16" drill="0.35"/>
+<contactref element="U1" pad="16"/>
+<wire x1="20.054959375" y1="8.70084375" x2="20.039596875" y2="8.68548125" width="0.4" layer="1"/>
+<wire x1="20.039596875" y1="8.68548125" x2="18.80869375" y2="8.68548125" width="0.4" layer="1"/>
+<wire x1="7.440103125" y1="19.821165625" x2="9.4055" y2="19.821165625" width="0.4" layer="1"/>
+<wire x1="9.4055" y1="19.821165625" x2="9.427359375" y2="19.843025" width="0.4" layer="1"/>
+<wire x1="18.80869375" y1="8.68548125" x2="12.235609375" y2="8.68548125" width="0.4" layer="16"/>
+<wire x1="11.378065625" y1="9.543025" x2="9.09451875" y2="9.543025" width="0.4" layer="16"/>
+<wire x1="8.460940625" y1="10.176603125" x2="8.460665625" y2="10.176603125" width="0.4" layer="16"/>
+<wire x1="9.09451875" y1="9.543025" x2="8.460940625" y2="10.176603125" width="0.4" layer="16"/>
+<wire x1="8.460665625" y1="10.176603125" x2="8.4306" y2="10.20666875" width="0.4" layer="16"/>
+<wire x1="8.4306" y1="10.20666875" x2="8.4306" y2="10.802625" width="0.4" layer="16"/>
+<wire x1="8.4306" y1="10.802625" x2="6.556509375" y2="12.676715625" width="0.4" layer="16"/>
+<wire x1="6.556509375" y1="18.937571875" x2="7.440103125" y2="19.821165625" width="0.4" layer="16"/>
+<wire x1="12.235609375" y1="8.68548125" x2="11.378065625" y2="9.543025" width="0.4" layer="16"/>
+<wire x1="6.556509375" y1="12.676715625" x2="6.556509375" y2="18.937571875" width="0.4" layer="16"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
