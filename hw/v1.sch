@@ -838,352 +838,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
-<library name="we-power">
-<description>Batteries, V-Reg, Power Inductors...</description>
-<packages>
-<package name="L_CDRH2D">
-<description>Sumida CDRH2D</description>
-<wire x1="1" y1="1.6" x2="1.5" y2="1.1" width="0.127" layer="21"/>
-<wire x1="1.5" y1="1.1" x2="1.5" y2="-1" width="0.127" layer="21"/>
-<wire x1="1" y1="-1.5" x2="-1.5" y2="-1.5" width="0.127" layer="21"/>
-<wire x1="-1" y1="1.6" x2="-1.5" y2="1.1" width="0.127" layer="21"/>
-<wire x1="1.5" y1="-1" x2="1" y2="-1.5" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="1.1" x2="-1.5" y2="-1.5" width="0.127" layer="21"/>
-<wire x1="1" y1="1.6" x2="-1" y2="1.6" width="0.127" layer="21"/>
-<smd name="1" x="-1.06" y="1.06" dx="1.3" dy="1.3" layer="1" rot="R45"/>
-<smd name="2" x="1.06" y="-1.06" dx="1.3" dy="1.3" layer="1" rot="R45"/>
-<text x="-2.54" y="0" size="0.8128" layer="25" font="vector" ratio="10" rot="R270" align="center">&gt;NAME</text>
-<text x="2.54" y="0" size="0.8128" layer="27" font="vector" ratio="10" rot="R270" align="center">&gt;VALUE</text>
-<circle x="0" y="0" radius="1" width="0.127" layer="21"/>
-</package>
-<package name="L_1212">
-<description>Murata LQH3NP</description>
-<wire x1="1.5" y1="1.5" x2="1.5" y2="-1.5" width="0.127" layer="21"/>
-<wire x1="1.5" y1="-1.5" x2="-1.5" y2="-1.5" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="1.5" x2="-1.5" y2="-1.5" width="0.127" layer="21"/>
-<smd name="1" x="0" y="1.2" dx="3" dy="1.4" layer="1" roundness="10"/>
-<smd name="2" x="0" y="-1.2" dx="3" dy="1.4" layer="1" roundness="10"/>
-<text x="-2.54" y="0" size="0.8128" layer="25" font="vector" ratio="10" rot="R270" align="center">&gt;NAME</text>
-<text x="2.54" y="0" size="0.8128" layer="27" font="vector" ratio="10" rot="R270" align="center">&gt;VALUE</text>
-<circle x="0" y="0" radius="1.4" width="0.127" layer="21"/>
-<wire x1="1.5" y1="1.5" x2="-1.5" y2="1.5" width="0.127" layer="21"/>
-</package>
-<package name="L_WEPD3S">
-<description>Wuerth WE-PD3 S</description>
-<wire x1="2.25" y1="-1.5" x2="2.25" y2="1.5" width="0.127" layer="21"/>
-<wire x1="2.25" y1="1.5" x2="0.635" y2="3.3" width="0.127" layer="21"/>
-<wire x1="0.635" y1="3.3" x2="-0.635" y2="3.3" width="0.127" layer="21"/>
-<wire x1="-0.635" y1="3.3" x2="-2.25" y2="1.5" width="0.127" layer="21"/>
-<wire x1="-2.25" y1="1.5" x2="-2.25" y2="-1.5" width="0.127" layer="21"/>
-<wire x1="-2.25" y1="-1.5" x2="-0.635" y2="-3.3" width="0.127" layer="21"/>
-<wire x1="-0.635" y1="-3.3" x2="0.635" y2="-3.3" width="0.127" layer="21"/>
-<wire x1="0.635" y1="-3.3" x2="2.25" y2="-1.5" width="0.127" layer="21"/>
-<circle x="0" y="0" radius="1.9" width="0.127" layer="21"/>
-<smd name="1" x="0" y="2.75" dx="3.5" dy="1.4" layer="1" roundness="20"/>
-<smd name="2" x="0" y="-2.75" dx="3.5" dy="1.4" layer="1" roundness="20"/>
-<text x="-3.175" y="0" size="0.8128" layer="25" font="vector" ratio="10" rot="R270" align="center">&gt;NAME</text>
-<text x="3.175" y="0" size="0.8128" layer="27" font="vector" ratio="10" rot="R270" align="center">&gt;VALUE</text>
-</package>
-<package name="L_WEPD3M">
-<description>Wuerth WE-PD3 M (3mm height)</description>
-<wire x1="5.05" y1="-1.5" x2="5.05" y2="1.5" width="0.127" layer="21"/>
-<wire x1="5.05" y1="1.5" x2="1.5" y2="6.4" width="0.127" layer="21"/>
-<wire x1="1.5" y1="6.4" x2="-1.5" y2="6.4" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="6.4" x2="-5.05" y2="1.5" width="0.127" layer="21"/>
-<wire x1="-5.05" y1="1.5" x2="-5.05" y2="-1.5" width="0.127" layer="21"/>
-<wire x1="-5.05" y1="-1.5" x2="-1.5" y2="-6.4" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="-6.4" x2="1.5" y2="-6.4" width="0.127" layer="21"/>
-<wire x1="1.5" y1="-6.4" x2="5.05" y2="-1.5" width="0.127" layer="21"/>
-<circle x="0" y="0" radius="3" width="0.127" layer="21"/>
-<smd name="1" x="0" y="5.15" dx="2.8" dy="3" layer="1" roundness="20"/>
-<smd name="2" x="0" y="-5.15" dx="2.8" dy="3" layer="1" roundness="20"/>
-<text x="-5.715" y="0" size="0.8128" layer="25" font="vector" ratio="10" rot="R90" align="center">&gt;NAME</text>
-<text x="5.715" y="0" size="0.8128" layer="27" font="vector" ratio="10" rot="R90" align="center">&gt;VALUE</text>
-<circle x="0" y="0" radius="5" width="0.127" layer="21"/>
-</package>
-<package name="L_PIS2816">
-<description>Fastron PIS2816</description>
-<wire x1="3.75" y1="3.75" x2="3.75" y2="-3.75" width="0.127" layer="21"/>
-<wire x1="-3.75" y1="3.75" x2="-3.75" y2="-3.75" width="0.127" layer="21"/>
-<wire x1="3.75" y1="3.75" x2="-3.75" y2="3.75" width="0.127" layer="21"/>
-<wire x1="3.75" y1="-3.75" x2="-3.75" y2="-3.75" width="0.127" layer="21"/>
-<circle x="0" y="0" radius="3.175" width="0.127" layer="21"/>
-<smd name="1" x="0" y="3.1" dx="2.2" dy="1.8" layer="1" roundness="20"/>
-<smd name="2" x="0" y="-3.1" dx="2.2" dy="1.8" layer="1" roundness="20"/>
-<text x="-4.445" y="0" size="0.8128" layer="25" font="vector" ratio="10" rot="R270" align="center">&gt;NAME</text>
-<text x="4.445" y="0" size="0.8128" layer="27" font="vector" ratio="10" rot="R270" align="center">&gt;VALUE</text>
-</package>
-<package name="L_NR60XX">
-<description>Taiyo Yuden NR 6010, 6012, 6014, 6020, 6028, 6045</description>
-<wire x1="3" y1="-1.5" x2="3" y2="1.5" width="0.127" layer="21"/>
-<wire x1="3" y1="1.5" x2="1.5" y2="3" width="0.127" layer="21"/>
-<wire x1="1.5" y1="3" x2="-1.5" y2="3" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="3" x2="-3" y2="1.5" width="0.127" layer="21"/>
-<wire x1="-3" y1="1.5" x2="-3" y2="-1.5" width="0.127" layer="21"/>
-<wire x1="-3" y1="-1.5" x2="-1.5" y2="-3" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="-3" x2="1.5" y2="-3" width="0.127" layer="21"/>
-<wire x1="1.5" y1="-3" x2="3" y2="-1.5" width="0.127" layer="21"/>
-<smd name="1" x="0" y="2.35" dx="5.7" dy="1.7" layer="1" roundness="20"/>
-<smd name="2" x="0" y="-2.35" dx="5.7" dy="1.7" layer="1" roundness="20"/>
-<text x="-3.81" y="0" size="0.8128" layer="25" font="vector" ratio="10" rot="R90" align="center">&gt;NAME</text>
-<text x="3.81" y="0" size="0.8128" layer="27" font="vector" ratio="10" rot="R90" align="center">&gt;VALUE</text>
-<circle x="0" y="0" radius="2" width="0.127" layer="21"/>
-</package>
-<package name="L_NR80XX">
-<description>Taiyo Yuden NR 8030, 8040</description>
-<wire x1="4" y1="-2.5" x2="4" y2="2.5" width="0.127" layer="21"/>
-<wire x1="4" y1="2.5" x2="2.5" y2="4" width="0.127" layer="21"/>
-<wire x1="2.5" y1="4" x2="-2.5" y2="4" width="0.127" layer="21"/>
-<wire x1="-2.5" y1="4" x2="-4" y2="2.5" width="0.127" layer="21"/>
-<wire x1="-4" y1="2.5" x2="-4" y2="-2.5" width="0.127" layer="21"/>
-<wire x1="-4" y1="-2.5" x2="-2.5" y2="-4" width="0.127" layer="21"/>
-<wire x1="-2.5" y1="-4" x2="2.5" y2="-4" width="0.127" layer="21"/>
-<wire x1="2.5" y1="-4" x2="4" y2="-2.5" width="0.127" layer="21"/>
-<smd name="1" x="0" y="2.8" dx="7.5" dy="1.9" layer="1" roundness="20"/>
-<smd name="2" x="0" y="-2.8" dx="7.5" dy="1.9" layer="1" roundness="20"/>
-<text x="-5.08" y="0" size="0.8128" layer="25" font="vector" ratio="10" rot="R90" align="center">&gt;NAME</text>
-<text x="5.08" y="0" size="0.8128" layer="27" font="vector" ratio="10" rot="R90" align="center">&gt;VALUE</text>
-<circle x="0" y="0" radius="3" width="0.127" layer="21"/>
-</package>
-<package name="L_WEPD3L">
-<description>Wuerth WE-PD3 L (5mm height)</description>
-<wire x1="5.05" y1="-1.5" x2="5.05" y2="1.5" width="0.127" layer="21"/>
-<wire x1="5.05" y1="1.5" x2="1.5" y2="6.4" width="0.127" layer="21"/>
-<wire x1="1.5" y1="6.4" x2="-1.5" y2="6.4" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="6.4" x2="-5.05" y2="1.5" width="0.127" layer="21"/>
-<wire x1="-5.05" y1="1.5" x2="-5.05" y2="-1.5" width="0.127" layer="21"/>
-<wire x1="-5.05" y1="-1.5" x2="-1.5" y2="-6.4" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="-6.4" x2="1.5" y2="-6.4" width="0.127" layer="21"/>
-<wire x1="1.5" y1="-6.4" x2="5.05" y2="-1.5" width="0.127" layer="21"/>
-<circle x="0" y="0" radius="3" width="0.127" layer="21"/>
-<smd name="1" x="0" y="5.15" dx="2.8" dy="3" layer="1" roundness="20"/>
-<smd name="2" x="0" y="-5.15" dx="2.8" dy="3" layer="1" roundness="20"/>
-<text x="-5.715" y="0" size="0.8128" layer="25" font="vector" ratio="10" rot="R90" align="center">&gt;NAME</text>
-<text x="5.715" y="0" size="0.8128" layer="27" font="vector" ratio="10" rot="R90" align="center">&gt;VALUE</text>
-<circle x="0" y="0" radius="5" width="0.127" layer="21"/>
-</package>
-<package name="L_WEPD10XX">
-<description>Wuerth WE-PD 10xx</description>
-<wire x1="5" y1="-4" x2="5" y2="4" width="0.127" layer="21"/>
-<wire x1="5" y1="4" x2="4" y2="5" width="0.127" layer="21"/>
-<wire x1="4" y1="5" x2="-4" y2="5" width="0.127" layer="21"/>
-<wire x1="-4" y1="5" x2="-5" y2="4" width="0.127" layer="21"/>
-<wire x1="-5" y1="4" x2="-5" y2="-4" width="0.127" layer="21"/>
-<wire x1="-5" y1="-4" x2="-4" y2="-5" width="0.127" layer="21"/>
-<wire x1="-4" y1="-5" x2="4" y2="-5" width="0.127" layer="21"/>
-<wire x1="4" y1="-5" x2="5" y2="-4" width="0.127" layer="21"/>
-<smd name="1" x="0" y="4.5" dx="3.5" dy="2" layer="1" roundness="20"/>
-<smd name="2" x="0" y="-4.5" dx="3.5" dy="2" layer="1" roundness="20"/>
-<text x="-5.715" y="0" size="0.8128" layer="25" font="vector" ratio="10" rot="R90" align="center">&gt;NAME</text>
-<text x="5.715" y="0" size="0.8128" layer="27" font="vector" ratio="10" rot="R90" align="center">&gt;VALUE</text>
-<circle x="0" y="0" radius="4" width="0.127" layer="21"/>
-</package>
-<package name="L_WEPD12XX">
-<description>Wuerth WE-PD 12xx</description>
-<wire x1="6" y1="-5" x2="6" y2="5" width="0.127" layer="21"/>
-<wire x1="6" y1="5" x2="5" y2="6" width="0.127" layer="21"/>
-<wire x1="5" y1="6" x2="-5" y2="6" width="0.127" layer="21"/>
-<wire x1="-5" y1="6" x2="-6" y2="5" width="0.127" layer="21"/>
-<wire x1="-6" y1="5" x2="-6" y2="-5" width="0.127" layer="21"/>
-<wire x1="-6" y1="-5" x2="-5" y2="-6" width="0.127" layer="21"/>
-<wire x1="-5" y1="-6" x2="5" y2="-6" width="0.127" layer="21"/>
-<wire x1="5" y1="-6" x2="6" y2="-5" width="0.127" layer="21"/>
-<smd name="1" x="0" y="4.95" dx="5.4" dy="2.9" layer="1" roundness="20"/>
-<smd name="2" x="0" y="-4.95" dx="5.4" dy="2.9" layer="1" roundness="20"/>
-<text x="-6.985" y="0" size="0.8128" layer="25" font="vector" ratio="10" rot="R90" align="center">&gt;NAME</text>
-<text x="6.985" y="0" size="0.8128" layer="27" font="vector" ratio="10" rot="R90" align="center">&gt;VALUE</text>
-<circle x="0" y="0" radius="5" width="0.127" layer="21"/>
-</package>
-<package name="L_NR40XX">
-<description>Taiyo Yuden NR 4010, 4012, 4018, 4026</description>
-<wire x1="2" y1="-1.5" x2="2" y2="1.5" width="0.127" layer="21"/>
-<wire x1="2" y1="1.5" x2="1.5" y2="2" width="0.127" layer="21"/>
-<wire x1="1.5" y1="2" x2="-1.5" y2="2" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="2" x2="-2" y2="1.5" width="0.127" layer="21"/>
-<wire x1="-2" y1="1.5" x2="-2" y2="-1.5" width="0.127" layer="21"/>
-<wire x1="-2" y1="-1.5" x2="-1.5" y2="-2" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="-2" x2="1.5" y2="-2" width="0.127" layer="21"/>
-<wire x1="1.5" y1="-2" x2="2" y2="-1.5" width="0.127" layer="21"/>
-<smd name="1" x="0" y="1.4" dx="3.7" dy="1.2" layer="1" roundness="20"/>
-<smd name="2" x="0" y="-1.4" dx="3.7" dy="1.2" layer="1" roundness="20"/>
-<text x="-2.54" y="0" size="0.8128" layer="25" font="vector" ratio="10" rot="R90" align="center">&gt;NAME</text>
-<text x="2.54" y="0" size="0.8128" layer="27" font="vector" ratio="10" rot="R90" align="center">&gt;VALUE</text>
-<circle x="0" y="0" radius="1.5" width="0.127" layer="21"/>
-</package>
-</packages>
-<symbols>
-<symbol name="INDUCTOR">
-<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
-<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
-<wire x1="-2.54" y1="0.889" x2="2.54" y2="0.889" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="0.889" x2="2.54" y2="-0.889" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="-0.889" x2="-2.54" y2="-0.889" width="0.1524" layer="94"/>
-<wire x1="-2.54" y1="-0.889" x2="-2.54" y2="0.889" width="0.1524" layer="94"/>
-<text x="0" y="1.27" size="1.778" layer="95" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-1.27" size="1.778" layer="96" align="top-center">&gt;VALUE</text>
-<rectangle x1="-2.54" y1="-0.889" x2="2.54" y2="0.889" layer="94"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="INDUCTOR" prefix="L" uservalue="yes">
-<description>Power Inductor&lt;br&gt;
-&lt;br&gt;
-Taiyo Yuden NRxxxx are compatible with FerroCore DJNRxxxx and YJYCOIN YNRxxxx.&lt;br&gt;
-&lt;br&gt;
-4x4mm - &lt;b&gt;Taiyo Yuden NR4018&lt;/b&gt; / DJNR4018 / YNR4018&lt;br&gt;
-NR4018T1R0N - 1.0uH, Ir=4.0A&lt;br&gt;
-NR4018T2R2N - 2.2uH, Ir=2.7A&lt;br&gt;
-NR4018T3R3N - 3.3uH, Ir=2.0A&lt;br&gt;
-NR4018T4R5N - 4.7uH, Ir=1.7A&lt;br&gt;
-NR4018T6R8N - 6.8uH, Ir=1.4A&lt;br&gt;
-NR4018T100M - 10uH, Ir=1.2A&lt;br&gt;
-NR4018T150M - 15uH, Ir=0.94A&lt;br&gt;
-NR4018T220M - 22uH, Ir=0.80A&lt;br&gt;
-NR4018T330M - 33uH, Ir=0.65A&lt;br&gt;
-NR4018T470M - 47uH, Ir=0.57A&lt;br&gt;
-NR4018T680M - 68uH, Ir=0.47A&lt;br&gt;
-NR4018T101M - 100uH, Ir=0.40A&lt;br&gt;
-&lt;br&gt;
-6x6mm - &lt;b&gt;Taiyo Yuden NR6028&lt;/b&gt; / DJNR6028 / YNR6028&lt;br&gt;
-NR6028T0R9N - 0.9uH, Ir=6.6A&lt;br&gt;
-NR6028T1R5N - 1.5uH, Ir=5.0A&lt;br&gt;
-NR6028T2R2N - 2.2uH, Ir=4.2A&lt;br&gt;
-NR6028T3R0N - 3.0uH, Ir=3.6A&lt;br&gt;
-NR6028T4R7M - 4.7uH, Ir=2.7A&lt;br&gt;
-NR6028T6R0M - 6.0uH, Ir=2.5A&lt;br&gt;
-NR6028T100M - 10uH, Ir=1.9A&lt;br&gt;
-NR6028T150M - 15uH, Ir=1.6A&lt;br&gt;
-NR6028T220M - 22uH, Ir=1.3A&lt;br&gt;
-NR6028T330M - 33uH, Ir=1.1A&lt;br&gt;
-NR6028T470M - 47uH, Ir=0.95A&lt;br&gt;
-NR6028T680M - 68uH, Ir=0.76A&lt;br&gt;
-NR6028T101M - 100uH, Ir=0.62A&lt;br&gt;
-&lt;br&gt;
-6x6mm - &lt;b&gt;Taiyo Yuden NR6045&lt;/b&gt; / DJNR6045 / YNR6045&lt;br&gt;
-NR6045T1R0N - 1.0uH, Ir=8.5A&lt;br&gt;
-NR6045T1R3N - 1.3uH, Ir=8.0A&lt;br&gt;
-NR6045T1R8N - 1.8uH, Ir=7.0A&lt;br&gt;
-NR6045T2R3N - 2.3uH, Ir=6.0A&lt;br&gt;
-NR6045T3R0N - 3.0uH, Ir=5.0A&lt;br&gt;
-NR6045T4R5M - 4.5uH, Ir=4.0A&lt;br&gt;
-NR6045T6R3M - 6.3uH, Ir=3.8A&lt;br&gt;
-NR6045T100M - 10uH, Ir=3.0A&lt;br&gt;
-NR6045T150M - 15uH, Ir=2.3A&lt;br&gt;
-NR6045T220M - 22uH, Ir=1.9A&lt;br&gt;
-NR6045T330M - 33uH, Ir=1.5A&lt;br&gt;
-NR6045T470M - 47uH, Ir=1.3A&lt;br&gt;
-NR6045T680M - 68uH, Ir=1.0A&lt;br&gt;
-NR6045T101M - 100uH, Ir=0.8A&lt;br&gt;
-&lt;br&gt;
-8x8mm - &lt;b&gt;Taiyo Yuden NR8040&lt;/b&gt; / DJNR8040 / YNR8040&lt;br&gt;
-&lt;br&gt;</description>
-<gates>
-<gate name="L" symbol="INDUCTOR" x="0" y="0"/>
-</gates>
-<devices>
-<device name="-CDRH2D" package="L_CDRH2D">
-<connects>
-<connect gate="L" pin="1" pad="1"/>
-<connect gate="L" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="-1212" package="L_1212">
-<connects>
-<connect gate="L" pin="1" pad="1"/>
-<connect gate="L" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="-WEPD3S" package="L_WEPD3S">
-<connects>
-<connect gate="L" pin="1" pad="1"/>
-<connect gate="L" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="-WEPD3M" package="L_WEPD3M">
-<connects>
-<connect gate="L" pin="1" pad="1"/>
-<connect gate="L" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="-PIS2816" package="L_PIS2816">
-<connects>
-<connect gate="L" pin="1" pad="1"/>
-<connect gate="L" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="-NR60XX" package="L_NR60XX">
-<connects>
-<connect gate="L" pin="1" pad="1"/>
-<connect gate="L" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="-NR80XX" package="L_NR80XX">
-<connects>
-<connect gate="L" pin="1" pad="1"/>
-<connect gate="L" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="-WEPD3L" package="L_WEPD3L">
-<connects>
-<connect gate="L" pin="1" pad="1"/>
-<connect gate="L" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="-WEPD10XX" package="L_WEPD10XX">
-<connects>
-<connect gate="L" pin="1" pad="1"/>
-<connect gate="L" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="-WEPD12XX" package="L_WEPD12XX">
-<connects>
-<connect gate="L" pin="1" pad="1"/>
-<connect gate="L" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="-NR40XX" package="L_NR40XX">
-<connects>
-<connect gate="L" pin="1" pad="1"/>
-<connect gate="L" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SI1308EDL-T1-GE3">
 <packages>
 <package name="SOT65P210X110-3N">
@@ -9338,6 +8992,69 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 </deviceset>
 </devicesets>
 </library>
+<library name="ADL3225V-470MT-TL000">
+<packages>
+<package name="IND_ADL3225V-470MT-TL000">
+<wire x1="-1.6" y1="1.25" x2="-1.6" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="1.6" y1="1.25" x2="1.6" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="1.25" x2="1.6" y2="1.25" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="-1.25" x2="1.6" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="-2.25" y1="1.5" x2="-2.25" y2="-1.5" width="0.05" layer="39"/>
+<wire x1="-2.25" y1="-1.5" x2="2.25" y2="-1.5" width="0.05" layer="39"/>
+<wire x1="2.25" y1="-1.5" x2="2.25" y2="1.5" width="0.05" layer="39"/>
+<wire x1="2.25" y1="1.5" x2="-2.25" y2="1.5" width="0.05" layer="39"/>
+<wire x1="-0.78" y1="1.25" x2="0.78" y2="1.25" width="0.127" layer="21"/>
+<wire x1="-0.78" y1="-1.25" x2="0.78" y2="-1.25" width="0.127" layer="21"/>
+<text x="-2.25" y="1.75" size="0.8128" layer="25">&gt;NAME</text>
+<text x="-2.25" y="-1.75" size="0.8128" layer="27" align="top-left">&gt;VALUE</text>
+<smd name="1" x="-1.55" y="0" dx="0.9" dy="2.5" layer="1"/>
+<smd name="2" x="1.55" y="0" dx="0.9" dy="2.5" layer="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="ADL3225V-470MT-TL000">
+<text x="-10.16" y="5.08" size="1.778" layer="95">&gt;NAME</text>
+<text x="-10.16" y="-5.08" size="1.778" layer="96" align="top-left">&gt;VALUE</text>
+<wire x1="-5.08" y1="0" x2="-7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="0" x2="-2.54" y2="0" width="0.254" layer="94" curve="-180"/>
+<wire x1="-2.54" y1="0" x2="0" y2="0" width="0.254" layer="94" curve="-180"/>
+<wire x1="0" y1="0" x2="2.54" y2="0" width="0.254" layer="94" curve="-180"/>
+<wire x1="2.54" y1="0" x2="5.08" y2="0" width="0.254" layer="94" curve="-180"/>
+<pin name="1" x="-12.7" y="0" visible="off" length="middle" direction="pas"/>
+<pin name="2" x="12.7" y="0" visible="off" length="middle" direction="pas" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="ADL3225V-470MT-TL000" prefix="L">
+<description> &lt;a href="https://pricing.snapeda.com/parts/ADL3225V-470MT-TL000/TDK/view-part?ref=eda"&gt;Check availability&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="ADL3225V-470MT-TL000" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="IND_ADL3225V-470MT-TL000">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="In Stock"/>
+<attribute name="CHECK_PRICES" value="https://www.snapeda.com/parts/ADL3225V-470MT-TL000/TDK/view-part/?ref=eda"/>
+<attribute name="DESCRIPTION" value=" 47 µH Unshielded Wirewound Inductor 500 mA 900mOhm Max 1210 (3225 Metric) "/>
+<attribute name="MF" value="TDK"/>
+<attribute name="MP" value="ADL3225V-470MT-TL000"/>
+<attribute name="PACKAGE" value="None"/>
+<attribute name="PRICE" value="None"/>
+<attribute name="PURCHASE-URL" value="https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=1658563&amp;manufacturer=TDK&amp;part_name=ADL3225V-470MT-TL000&amp;search_term=None"/>
+<attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/ADL3225V-470MT-TL000/TDK/view-part/?ref=snap"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -9365,7 +9082,6 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <part name="D3" library="MBR0530" deviceset="MBR0530" device=""/>
 <part name="C7" library="SparkFun-Capacitors" deviceset="1.0UF" device="-0603-16V-10%-X7R-WE" value="1.0uF"/>
 <part name="SUPPLY4" library="Tutorial - Fusion 360" library_urn="urn:adsk.eagle:library:16997205" deviceset="GND" device="" value="GND"/>
-<part name="L1" library="we-power" deviceset="INDUCTOR" device="-NR40XX"/>
 <part name="C9" library="SparkFun-Capacitors" deviceset="4.7UF" device="-0603-35V-(20%)" value="4.7uF"/>
 <part name="SUPPLY5" library="Tutorial - Fusion 360" library_urn="urn:adsk.eagle:library:16997205" deviceset="GND" device="" value="GND"/>
 <part name="Q1" library="SI1308EDL-T1-GE3" deviceset="SI1308EDL-T1-GE3" device=""/>
@@ -9394,7 +9110,7 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <part name="U3" library="TLV1117LV33DCYR" deviceset="TLV1117LV33DCYR" device=""/>
 <part name="J2" library="S2B-PH-SM4-TB_LF__SN_" deviceset="S2B-PH-SM4-TB(LF)(SN)" device=""/>
 <part name="SUPPLY15" library="Tutorial - Fusion 360" library_urn="urn:adsk.eagle:library:16997205" deviceset="GND" device="" value="GND"/>
-<part name="U$1" library="MCP73831T-2ACI_OT" deviceset="MCP73831T-2ACI/OT" device=""/>
+<part name="U4" library="MCP73831T-2ACI_OT" deviceset="MCP73831T-2ACI/OT" device=""/>
 <part name="C14" library="SparkFun-Capacitors" deviceset="4.7UF" device="-0603-35V-(20%)" value="4.7uF"/>
 <part name="LED1" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="CHIP-LED0603" package3d_urn="urn:adsk.eagle:package:15819/3"/>
 <part name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="470"/>
@@ -9411,9 +9127,10 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <part name="C16" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="0.1UF" device="-0603-25V-(+80/-20%)" package3d_urn="urn:adsk.eagle:package:41385090/1" value="0.1uF"/>
 <part name="S1" library="EVQ-P7A01P" deviceset="EVQ-P7A01P" device=""/>
 <part name="S2" library="EVQ-P7A01P" deviceset="EVQ-P7A01P" device=""/>
-<part name="J4" library="PTS636_SM25F_SMTR_LFS" deviceset="PTS636_SM25F_SMTR_LFS" device=""/>
-<part name="U$2" library="MCP9700T-E_TT" deviceset="MCP9700T-E/TT" device=""/>
+<part name="S3" library="PTS636_SM25F_SMTR_LFS" deviceset="PTS636_SM25F_SMTR_LFS" device=""/>
+<part name="U5" library="MCP9700T-E_TT" deviceset="MCP9700T-E/TT" device=""/>
 <part name="SUPPLY22" library="Tutorial - Fusion 360" library_urn="urn:adsk.eagle:library:16997205" deviceset="GND" device="" value="GND"/>
+<part name="L1" library="ADL3225V-470MT-TL000" deviceset="ADL3225V-470MT-TL000" device="" value="47 uH"/>
 </parts>
 <sheets>
 <sheet>
@@ -9493,16 +9210,12 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <instance part="SUPPLY4" gate="G$1" x="-22.86" y="53.34" smashed="yes">
 <attribute name="VALUE" x="-22.733" y="50.165" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="L1" gate="L" x="-53.34" y="68.58" smashed="yes">
-<attribute name="NAME" x="-53.34" y="69.85" size="1.778" layer="95" align="bottom-center"/>
-<attribute name="VALUE" x="-53.34" y="67.31" size="1.778" layer="96" align="top-center"/>
+<instance part="C9" gate="G$1" x="-78.74" y="58.42" smashed="yes">
+<attribute name="NAME" x="-83.82" y="61.341" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="-86.614" y="55.753" size="1.778" layer="96" font="vector"/>
 </instance>
-<instance part="C9" gate="G$1" x="-63.5" y="58.42" smashed="yes">
-<attribute name="NAME" x="-61.976" y="61.341" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="-61.976" y="56.261" size="1.778" layer="96" font="vector"/>
-</instance>
-<instance part="SUPPLY5" gate="G$1" x="-63.5" y="53.34" smashed="yes">
-<attribute name="VALUE" x="-63.373" y="50.165" size="1.778" layer="96" align="bottom-center"/>
+<instance part="SUPPLY5" gate="G$1" x="-78.74" y="53.34" smashed="yes">
+<attribute name="VALUE" x="-78.613" y="50.165" size="1.778" layer="96" align="bottom-center"/>
 </instance>
 <instance part="Q1" gate="G$1" x="-50.8" y="45.72" smashed="yes">
 <attribute name="NAME" x="-39.37" y="49.53" size="1.778" layer="95" align="center-left"/>
@@ -9606,7 +9319,7 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <instance part="SUPPLY15" gate="G$1" x="114.3" y="-35.56" smashed="yes">
 <attribute name="VALUE" x="114.427" y="-38.735" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="U$1" gate="A" x="213.36" y="5.08" smashed="yes">
+<instance part="U4" gate="A" x="213.36" y="5.08" smashed="yes">
 <attribute name="NAME" x="200.855259375" y="13.6338" size="2.08681875" layer="95" ratio="10" rot="SR0"/>
 <attribute name="VALUE" x="199.27943125" y="-10.3383" size="2.085940625" layer="96" ratio="10" rot="SR0"/>
 </instance>
@@ -9668,16 +9381,19 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <attribute name="NAME" x="2.54" y="-81.28" size="1.27" layer="95"/>
 <attribute name="VALUE" x="2.54" y="-86.36" size="1.27" layer="96"/>
 </instance>
-<instance part="J4" gate="G$1" x="-66.04" y="-58.42" smashed="yes">
-<attribute name="NAME" x="-46.99" y="-50.8" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="-46.99" y="-53.34" size="1.778" layer="96" align="center-left"/>
+<instance part="S3" gate="G$1" x="-66.04" y="-58.42" smashed="yes">
+<attribute name="NAME" x="-51.054" y="-54.356" size="1.778" layer="95" align="center-left"/>
 </instance>
-<instance part="U$2" gate="A" x="-116.84" y="-22.86" smashed="yes">
+<instance part="U5" gate="A" x="-116.84" y="-22.86" smashed="yes">
 <attribute name="NAME" x="-129.54" y="-11.7" size="2.0828" layer="95" ratio="10" rot="SR0"/>
 <attribute name="VALUE" x="-129.54" y="-37.02" size="2.0828" layer="96" ratio="10" rot="SR0"/>
 </instance>
 <instance part="SUPPLY22" gate="G$1" x="-91.44" y="-30.48" smashed="yes">
 <attribute name="VALUE" x="-91.313" y="-33.655" size="1.778" layer="96" align="bottom-center"/>
+</instance>
+<instance part="L1" gate="G$1" x="-60.96" y="68.58" smashed="yes">
+<attribute name="NAME" x="-61.722" y="71.374" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-64.008" y="67.056" size="1.778" layer="96" align="top-left"/>
 </instance>
 </instances>
 <busses>
@@ -9805,13 +9521,13 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <label x="55.88" y="76.2" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="L1" gate="L" pin="1"/>
-<wire x1="-58.42" y1="68.58" x2="-63.5" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="-63.5" y1="68.58" x2="-63.5" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="-73.66" y1="68.58" x2="-78.74" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="-78.74" y1="68.58" x2="-78.74" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="C9" gate="G$1" pin="1"/>
-<wire x1="-63.5" y1="63.5" x2="-63.5" y2="68.58" width="0.1524" layer="91"/>
-<junction x="-63.5" y="68.58"/>
-<label x="-66.04" y="73.66" size="1.778" layer="95"/>
+<wire x1="-78.74" y1="63.5" x2="-78.74" y2="68.58" width="0.1524" layer="91"/>
+<junction x="-78.74" y="68.58"/>
+<label x="-81.28" y="73.66" size="1.778" layer="95"/>
+<pinref part="L1" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="3V3"/>
@@ -9856,7 +9572,7 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <label x="147.32" y="10.16" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="A" pin="VDD"/>
+<pinref part="U5" gate="A" pin="VDD"/>
 <wire x1="-99.06" y1="-15.24" x2="-91.44" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="-91.44" y1="-15.24" x2="-91.44" y2="-12.7" width="0.1524" layer="91"/>
 <label x="-93.98" y="-12.7" size="1.778" layer="95"/>
@@ -9985,7 +9701,7 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <wire x1="-83.82" y1="-68.58" x2="-66.04" y2="-68.58" width="0.1524" layer="91"/>
 <pinref part="C11" gate="G$1" pin="2"/>
 <junction x="-66.04" y="-68.58"/>
-<pinref part="J4" gate="G$1" pin="NO"/>
+<pinref part="S3" gate="G$1" pin="NO"/>
 <wire x1="-66.04" y1="-60.96" x2="-66.04" y2="-68.58" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -10042,7 +9758,7 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <wire x1="170.18" y1="-7.62" x2="170.18" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="A" pin="VSS"/>
+<pinref part="U4" gate="A" pin="VSS"/>
 <pinref part="SUPPLY17" gate="G$1" pin="GND"/>
 <wire x1="195.58" y1="-7.62" x2="195.58" y2="-2.54" width="0.1524" layer="91"/>
 </segment>
@@ -10076,7 +9792,7 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <wire x1="17.78" y1="-83.82" x2="12.7" y2="-83.82" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="A" pin="GND"/>
+<pinref part="U5" gate="A" pin="GND"/>
 <wire x1="-99.06" y1="-27.94" x2="-91.44" y2="-27.94" width="0.1524" layer="91"/>
 <pinref part="SUPPLY22" gate="G$1" pin="GND"/>
 </segment>
@@ -10101,11 +9817,11 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <wire x1="-43.18" y1="76.2" x2="-43.18" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="D3" gate="G$1" pin="A"/>
 <wire x1="-43.18" y1="68.58" x2="-33.02" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="L1" gate="L" pin="2"/>
 <wire x1="-48.26" y1="68.58" x2="-43.18" y2="68.58" width="0.1524" layer="91"/>
 <junction x="-43.18" y="68.58"/>
 <pinref part="Q1" gate="G$1" pin="D"/>
 <wire x1="-43.18" y1="68.58" x2="-43.18" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="L1" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="ENABLE" class="0">
@@ -10202,7 +9918,7 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <label x="114.3" y="-25.4" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="A" pin="VBAT"/>
+<pinref part="U4" gate="A" pin="VBAT"/>
 <pinref part="C15" gate="G$1" pin="1"/>
 <wire x1="231.14" y1="2.54" x2="241.3" y2="2.54" width="0.1524" layer="91"/>
 <junction x="231.14" y="2.54"/>
@@ -10211,7 +9927,7 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 </net>
 <net name="VUSB" class="0">
 <segment>
-<pinref part="U$1" gate="A" pin="VDD"/>
+<pinref part="U4" gate="A" pin="VDD"/>
 <wire x1="195.58" y1="7.62" x2="195.58" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="LED1" gate="G$1" pin="A"/>
 <wire x1="195.58" y1="20.32" x2="203.2" y2="20.32" width="0.1524" layer="91"/>
@@ -10241,12 +9957,12 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <pinref part="R8" gate="G$1" pin="1"/>
 <wire x1="223.52" y1="20.32" x2="231.14" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="231.14" y1="20.32" x2="231.14" y2="7.62" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="A" pin="STAT"/>
+<pinref part="U4" gate="A" pin="STAT"/>
 </segment>
 </net>
 <net name="N$15" class="0">
 <segment>
-<pinref part="U$1" gate="A" pin="PROG"/>
+<pinref part="U4" gate="A" pin="PROG"/>
 <pinref part="R9" gate="G$1" pin="1"/>
 <wire x1="195.58" y1="2.54" x2="185.42" y2="2.54" width="0.1524" layer="91"/>
 </segment>
@@ -10291,13 +10007,13 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <net name="N$8" class="0">
 <segment>
 <pinref part="R4" gate="G$1" pin="1"/>
-<pinref part="J4" gate="G$1" pin="COM"/>
+<pinref part="S3" gate="G$1" pin="COM"/>
 <wire x1="-71.12" y1="-58.42" x2="-66.04" y2="-58.42" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="TEMP" class="0">
 <segment>
-<pinref part="U$2" gate="A" pin="VOUT"/>
+<pinref part="U5" gate="A" pin="VOUT"/>
 <wire x1="-99.06" y1="-20.32" x2="-91.44" y2="-20.32" width="0.1524" layer="91"/>
 <label x="-96.52" y="-20.32" size="1.778" layer="95"/>
 </segment>

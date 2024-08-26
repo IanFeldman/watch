@@ -2,26 +2,26 @@ Part,Details,Symbol,Price,Quantity,Part Number
 esp32-c3,wroom-02,U1,1.9,1,1965-ESP32-C3-WROOM-02-N4CT-ND
 e-ink,"200x200, bw, 1.54in",,7.2,1,2544-AES200200A00-1.54ENRS-ND
 ffc connector,"24-pos, 0.5mm pitch",J1,0.67,1,2073-FFC2B28-24-GCT-ND
-1uf/25v cap,series 0603,"C1...C7, C12, C13",0.06,9,0603B105K250XD
-4.7uf/25v cap,series 0603,"C8, C9, C14, C15",,2,
-0.1uf cap,series 0603,"C10, C11",,2,
+1uf/25v cap,series 0603,"C1...C7, C12, C13",0.1,9,1276-1184-1-ND
+4.7uf/25v cap,series 0603,"C8, C9, C14, C15",0.1,4,1276-1044-1-ND
+0.1uf cap,series 0603,"C10, C11, C16",0.1,2,1276-1000-1-ND
 schottky diode,30V 500mA,D1...D3,0.21,3,MBR0530TPMSCT-ND
-inductor,"47uH, 570mA",L1,0.35,1,587-1670-1-ND
-nmos,,Q1,,1,SI1308EDL-T1-GE3CT-ND
+inductor,"47uH, 570mA",L1,1.17,1,445-174611-1-ND
+nmos,,Q1,0.44,1,SI1308EDL-T1-GE3CT-ND
 resistor 1M,series 0603,R1,,1,
 resistor 2.2,series 0603,R2,,1,
 resistor 10k,series 0603,"R3, R6, R7",,3,
 resistor 1k,series 0603,"R4, R5",,2,
 resistor 470,series 0603,R8,,1,
-push button,"mom, no",SW1,,1,CKN12330-1-ND
-uart connector,"4-pos, 2.54mm pitch",,0.56,1,S5440-ND
-rtc,i2c,,1.49,1,568-12404-1-ND
-accelerometer+temp,i2c,,3.12,1,497-LIS2DU12TRCT-ND
-linear regulator,,,0.35,1,296-28778-1-ND
+resistor 2k,series 0603,R9,,1,
+push button,"mom, no",S3,,1,CKN12330-1-ND
+uart connector,"4-pos, 2.54mm pitch",UART,0.56,1,S5440-ND
+rtc,i2c,U2,1.49,1,568-12404-1-ND
+linear regulator,3.3v,U3,0.35,1,296-28778-1-ND
 battery,"3.7V, 500mAh",,7.95,1,1528-1841-ND
-jst ph connector,,,0.58,1,455-S2B-PH-SM4-TBCT-ND
-usb connector,micro,,0.57,1,609-4616-1-ND
-charger,,,0.76,1,MCP73831T-2ACI/OTCT-ND
+jst ph connector,,J2,0.58,1,455-S2B-PH-SM4-TBCT-ND
+usb connector,micro,J3,0.57,1,609-4616-1-ND
+charger,,U4,0.76,1,MCP73831T-2ACI/OTCT-ND
 led,series 0603,LED1,,1,
 side button,"mom, no","S1, S2",0.29,2,P16763CT-ND
-temperature sensor,analog,,0.3,1,MCP9700T-E/TTCT-ND
+temperature sensor,analog,U5,0.3,1,MCP9700T-E/TTCT-ND
