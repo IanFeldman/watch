@@ -9113,7 +9113,7 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/PTS636 SM2
 <part name="U4" library="MCP73831T-2ACI_OT" deviceset="MCP73831T-2ACI/OT" device=""/>
 <part name="C14" library="SparkFun-Capacitors" deviceset="4.7UF" device="-0603-35V-(20%)" value="4.7uF"/>
 <part name="LED1" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="CHIP-LED0603" package3d_urn="urn:adsk.eagle:package:15819/3"/>
-<part name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="470"/>
+<part name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="300"/>
 <part name="SUPPLY16" library="Tutorial - Fusion 360" library_urn="urn:adsk.eagle:library:16997205" deviceset="GND" device="" value="GND"/>
 <part name="SUPPLY17" library="Tutorial - Fusion 360" library_urn="urn:adsk.eagle:library:16997205" deviceset="GND" device="" value="GND"/>
 <part name="C15" library="SparkFun-Capacitors" deviceset="4.7UF" device="-0603-35V-(20%)" value="4.7uF"/>

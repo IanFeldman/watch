@@ -8,13 +8,13 @@ ffc connector,"24-pos, 0.5mm pitch",J1,0.67,1,2073-FFC2B28-24-GCT-ND
 schottky diode,30V 500mA,D1...D3,0.21,3,MBR0530TPMSCT-ND
 inductor,"47uH, 570mA",L1,1.17,1,445-174611-1-ND
 nmos,,Q1,0.44,1,SI1308EDL-T1-GE3CT-ND
-resistor 1M,series 0603,R1,,1,
-resistor 2.2,series 0603,R2,,1,
-resistor 10k,series 0603,"R3, R6, R7",,3,
-resistor 1k,series 0603,"R4, R5",,2,
-resistor 470,series 0603,R8,,1,
-resistor 2k,series 0603,R9,,1,
-push button,"mom, no",S3,,1,CKN12330-1-ND
+resistor 1M,series 0603,R1,0.1,1,CR0603-FX-1004ELFCT-ND
+resistor 2.2,series 0603,R2,0.1,1,CR0603-J/-2R2ELFCT-ND
+resistor 10k,series 0603,"R3, R6, R7",0.1,3,CR0603-FX-1002ELF
+resistor 1k,series 0603,"R4, R5",0.1,2,CR0603-JW-102ELFCT-ND
+resistor 300,series 0603,R8,0.1,1,118-CR0603-FX-3000ELFCT-ND
+resistor 2k,series 0603,R9,0.1,1,CR0603-FX-2001ELFCT-ND
+push button,"mom, no",S3,0.24,1,CKN12330-1-ND
 uart connector,"4-pos, 2.54mm pitch",UART,0.56,1,S5440-ND
 rtc,i2c,U2,1.49,1,568-12404-1-ND
 linear regulator,3.3v,U3,0.35,1,296-28778-1-ND
@@ -22,6 +22,6 @@ battery,"3.7V, 500mAh",,7.95,1,1528-1841-ND
 jst ph connector,,J2,0.58,1,455-S2B-PH-SM4-TBCT-ND
 usb connector,micro,J3,0.57,1,609-4616-1-ND
 charger,,U4,0.76,1,MCP73831T-2ACI/OTCT-ND
-led,series 0603,LED1,,1,
+led,series 0603,LED1,0.21,1,160-1183-1-ND
 side button,"mom, no","S1, S2",0.29,2,P16763CT-ND
 temperature sensor,analog,U5,0.3,1,MCP9700T-E/TTCT-ND
