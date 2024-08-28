@@ -194,7 +194,6 @@
 <text x="26.4365625" y="5.423528125" size="0.5" layer="25">RX</text>
 <text x="0.86761875" y="9.63254375" size="0.5" layer="25">VBAT</text>
 <text x="7.24881875" y="9.60454375" size="0.5" layer="25">GND</text>
-<text x="26.54083125" y="10.367190625" size="0.5" layer="26" rot="MR0">WayWayWay</text>
 </plain>
 <libraries>
 <library name="SparkFun-Capacitors">
