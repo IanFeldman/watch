@@ -1,5 +1,5 @@
 Part,Details,Symbol,Price,Quantity,Part Number
-esp32-c3,wroom-02,U1,1.9,1,1965-ESP32-C3-WROOM-02-N4CT-ND
+esp32-c3,wroom-02-h4,U1,2,1,1965-ESP32-C3-WROOM-02-H4CT-ND
 e-ink,"200x200, bw, 1.54in",,7.2,1,2544-AES200200A00-1.54ENRS-ND
 ffc connector,"24-pos, 0.5mm pitch",J1,0.67,1,2073-FFC2B28-24-GCT-ND
 1uf/25v cap,series 0603,"C1...C7, C12, C13",0.1,9,1276-1184-1-ND
@@ -27,4 +27,3 @@ charger,,U4,0.76,1,MCP73831T-2ACI/OTCT-ND
 led,series 0603,"LED1, LED2",0.21,2,160-1183-1-ND
 side button,"mom, no","S1, S2",0.29,2,P16763CT-ND
 temperature sensor,analog,U5,0.3,1,MCP9700T-E/TTCT-ND
-
