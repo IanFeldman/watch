@@ -1,137 +1,279 @@
 #include "display.h"
 #include <driver/gpio.h>
 
-esp_err_t InitDisplay() {
-    printf("Initializing pins\n");
+/*!
+ * @brief Initialize D/C#, reset, and busy gpio pins.
+ * @return Esp error code.
+ */
+static esp_err_t display_initialize_gpio(void)
+{
+    esp_err_t err = ESP_OK;
+
     // init dc pin
     esp_rom_gpio_pad_select_gpio(DC_PIN);
-    gpio_set_direction(DC_PIN, GPIO_MODE_OUTPUT);
+    err = gpio_set_direction(DC_PIN, GPIO_MODE_OUTPUT);
+    if (err != ESP_OK)
+    {
+        printf("D/C# pin initialization failed.\n");
+        return err;
+    }
 
     // init reset pin
     esp_rom_gpio_pad_select_gpio(RESET_PIN);
-    gpio_set_direction(RESET_PIN, GPIO_MODE_OUTPUT);
+    err = gpio_set_direction(RESET_PIN, GPIO_MODE_OUTPUT);
+    if (err != ESP_OK)
+    {
+        printf("Reset pin initialization failed.\n");
+        return err;
+    }
 
     // init busy pin
     esp_rom_gpio_pad_select_gpio(BUSY_PIN);
-    gpio_set_direction(BUSY_PIN, GPIO_MODE_INPUT);
+    err = gpio_set_direction(BUSY_PIN, GPIO_MODE_INPUT);
+    if (err != ESP_OK)
+    {
+        printf("Busy pin initialization failed.\n");
+        return err;
+    }
 
-    // spi config
-    spi_bus_config_t buscfg = {
-        .miso_io_num = MISO_PIN,   // MISO
+    return err;
+}
+
+
+/*!
+ * @brief Initialize spi bus for communicating with display.
+ * @param[out] p_spi_handle A pointer to a spi handle structure.
+ * @return Esp error code.
+ */
+static esp_err_t display_initialize_spi(spi_device_handle_t *p_spi_handle)
+{
+    // initialize bus configuration
+    spi_bus_config_t bus_cfg = {
+        .miso_io_num = -1,         // MISO
         .mosi_io_num = MOSI_PIN,   // MOSI
         .sclk_io_num = SCLK_PIN,   // SCK
         .quadwp_io_num = -1,       // Unused
         .quadhd_io_num = -1,       // Unused
     };
 
-    // initialize the SPI bus
-    esp_err_t err = spi_bus_initialize(SPI2_HOST, &buscfg, SPI_DMA_CH_AUTO);
-    if (err != ESP_OK) {
-        printf("SPI bus initialization failed\n");
+    // initialize the spi bus
+    esp_err_t err = spi_bus_initialize(SPI2_HOST, &bus_cfg, SPI_DMA_CH_AUTO);
+    if (err != ESP_OK)
+    {
+        printf("SPI bus initialization failed.\n");
         return err;
     }
     
-    // Device configuration
+    // create device configuration
     spi_device_interface_config_t devcfg = {
         .clock_speed_hz = SPI_CLOCK_SPEED,
-        .mode = 0,
+        .mode = SPI_MODE,
         .spics_io_num = CS_PIN,
         .queue_size = SPI_QUEUE_SIZE,
     };
 
-    // Register device connected to the bus
-    spi_device_handle_t handle;
-    err = spi_bus_add_device(SPI2_HOST, &devcfg, &handle);
-    if (err != ESP_OK) {
-        printf("SPI bus addition failed\n");
+    // register device connected to the bus
+    err = spi_bus_add_device(SPI2_HOST, &devcfg, p_spi_handle);
+    if (err != ESP_OK)
+    {
+        printf("SPI bus addition failed.\n");
         return err;
-    }
-
-    printf("running\n");
-    // 1.
-    // hw reset (pin active low) 
-    gpio_set_level(RESET_PIN, 0);
-    vTaskDelay(pdMS_TO_TICKS(10));
-    gpio_set_level(RESET_PIN, 1);
-    vTaskDelay(pdMS_TO_TICKS(10));
-
-    // 2. Set Initial Config
-    // sw reset
-    WriteCommand(handle, 0x12);
-    vTaskDelay(pdMS_TO_TICKS(10)); // 10 ms
-
-    // 3. Send Initialization Code
-    WriteCommand(handle, 0x01);                             // set gate driver output
-    WriteData(handle, (uint8_t[]){0xc7, 0x00, 0x00}, 3);    // 200x200 res
-    WriteCommand(handle, 0x11);                             // def data entry sequence
-    WriteData(handle, (uint8_t[]){0x03}, 1);                // x increase, y increase : normal mode
-    WriteCommand(handle, 0x44);                             // set ram x range
-    WriteData(handle, (uint8_t[]){0x00, (WIDTH - 1) / 8}, 2);
-    WriteCommand(handle, 0x45);                             // set ram y range
-    WriteData(handle, (uint8_t[]){0x00, 0x00, (HEIGHT - 1), 0x00}, 4);
-    WriteCommand(handle, 0x3C);                             // set panel border
-    WriteData(handle, (uint8_t[]){0x05}, 1);                // 0x02 for dark
-
-    // 4. Load Waveform LUT
-    WriteCommand(handle, 0x18);                             // sense temp ext
-    WriteData(handle, (uint8_t[]){0x48}, 1);
-    WriteCommand(handle, 0x22);                             // display update ctrl2
-    WriteData(handle, (uint8_t[]){0xff}, 1);
-    WriteCommand(handle, 0x20);                             // activate display update seq
-    uint8_t busy = 1;
-    while (busy) {                                          // wait busy low
-        busy = gpio_get_level(BUSY_PIN);
-        vTaskDelay(pdMS_TO_TICKS(500));
-    }
-
-    // 5. Write image and drive display
-    WriteCommand(handle, 0x4e);                             // set x address counter
-    WriteData(handle, (uint8_t[]){0x00}, 1);
-    WriteCommand(handle, 0x4f);                             // set y address counter
-    WriteData(handle, (uint8_t[]){0x00}, 1);
-    WriteCommand(handle, 0x24);                             // write RAM
-    // generate small test pattern
-    uint8_t ram[200];
-    for (uint16_t i = 0; i < 200; i++) {
-        ram[i] = 0xaa;
-    }
-    WriteData(handle, ram, 200);
-    // WriteCommand(handle, 0x0c);                          // set softstart - not messing with this one
-    WriteCommand(handle, 0x22);                             // display update ctrl2
-    WriteData(handle, (uint8_t[]){0xff}, 1);
-    WriteCommand(handle, 0x20);                             // activate display update seq
-    busy = 1;
-    while (busy) { 
-        busy = gpio_get_level(BUSY_PIN);
-        vTaskDelay(pdMS_TO_TICKS(500));
     }
 
     return ESP_OK;
 }
 
-void WriteCommand(spi_device_handle_t handle, uint8_t command) {
-    // Set D/C~ low for command mode
+/*!
+ * @brief Write a command to the display.
+ * @param[in] spi_handle  A spi device handle structure.
+ * @param[in] command     An 8-bit command code.
+ */
+static void display_write_command(spi_device_handle_t spi_handle, uint8_t command)
+{
+    // Set D/C# low for command mode
     gpio_set_level(DC_PIN, 0);
     // setup transaction
     spi_transaction_t transaction = {
-        .length = 8,
+        .length = BITS_PER_BYTE,
         .tx_buffer = &command
     };
-    esp_err_t err = spi_device_transmit(handle, &transaction);
+    esp_err_t err = spi_device_transmit(spi_handle, &transaction);
     if (err != ESP_OK) {
         printf("SPI transmission failed\n");
     }
 }
 
-void WriteData(spi_device_handle_t handle, uint8_t *data, uint8_t length) {
-    // Set D/C~ high for data mode
+/*!
+ * @brief Write data to the display.
+ * @param[in] spi_handle  A spi device handle structure.
+ * @param[in] p_data      A pointer to a byte array.
+ * @param[in] length      The number of bytes to write.
+ */
+static void display_write_data(spi_device_handle_t spi_handle, uint8_t *p_data, uint8_t length)
+{
+    // Set D/C# high for data mode
     gpio_set_level(DC_PIN, 1);
     spi_transaction_t transaction = {
-        .length = 8 * length,
-        .tx_buffer = data
+        .length = BITS_PER_BYTE * length,
+        .tx_buffer = p_data
     };
-    esp_err_t err = spi_device_transmit(handle, &transaction);
+    esp_err_t err = spi_device_transmit(spi_handle, &transaction);
     if (err != ESP_OK) {
         printf("SPI transmission failed\n");
     }
 }
+
+/*!
+ * @brief Perform hardware and software reset.
+ * @param[in] spi_handle  A spi device handle structure.
+ * @todo Check for errors
+ */
+static void display_reset(spi_device_handle_t spi_handle)
+{
+    // hardware reset
+    gpio_set_level(RESET_PIN, 0);
+    vTaskDelay(pdMS_TO_TICKS(RESET_DELAY_MS));
+    gpio_set_level(RESET_PIN, 1);
+    vTaskDelay(pdMS_TO_TICKS(RESET_DELAY_MS));
+
+    // sw reset
+    display_write_command(spi_handle, 0x12);
+    vTaskDelay(pdMS_TO_TICKS(RESET_DELAY_MS));
+}
+
+/*!
+ * @brief Set gate driver, ram settings, and panel border.
+ * @param[in] spi_handle  A spi device handle structure.
+ */
+static void display_configure_internals(spi_device_handle_t spi_handle)
+{
+    // set gate driver output
+    display_write_command(spi_handle, 0x01);
+    uint8_t gate_driver_out[] = {0xc7, 0x00, 0x00};
+    display_write_data(spi_handle, gate_driver_out, 3);
+
+    // set ram settings
+    display_write_command(spi_handle, 0x11);
+    uint8_t data_entry_mode[] = {0x03}; // x increase, y increase : normal mode
+    display_write_data(spi_handle, data_entry_mode, 1);
+
+    // set ram x range
+    display_write_command(spi_handle, 0x44);
+    uint8_t ram_x_range[] = {0x00, (DISPLAY_WIDTH - 1) / BITS_PER_BYTE};
+    display_write_data(spi_handle, ram_x_range, 2);
+
+    // set ram y range
+    display_write_command(spi_handle, 0x45);
+    uint8_t ram_y_range[] = {0x00, 0x00, (DISPLAY_HEIGHT - 1), 0x00};
+    display_write_data(spi_handle, ram_y_range, 4);
+
+    // set panel border
+    display_write_command(spi_handle, 0x3C);
+    uint8_t panel_border[] = {0x05};
+    display_write_data(spi_handle, panel_border, 1);
+}
+
+/*!
+ * @brief Run display update cycle.
+ * @param[in] spi_handle  A spi device handle structure.
+ * @todo Ensure await busy loop will not get stuck.
+ */
+static void display_update(spi_device_handle_t spi_handle)
+{
+    // activate display update sequence
+    display_write_command(spi_handle, 0x20);
+    // wait busy low
+    uint8_t busy = 1;
+    while (busy)
+    {
+        busy = gpio_get_level(BUSY_PIN);
+        vTaskDelay(pdMS_TO_TICKS(AWAIT_BUSY_DELAY_MS));
+    }
+}
+
+/*!
+ * @brief Configure and activate update sequence.
+ * @param[in] spi_handle  A spi device handle structure.
+ */
+static void display_set_update_sequence(spi_device_handle_t spi_handle)
+{
+    // set display update sequence
+    display_write_command(spi_handle, 0x22);
+    uint8_t update_sequence[] = {0xFF};
+    display_write_data(spi_handle, update_sequence, 1);
+    // update
+    display_update(spi_handle);
+}
+
+/*!
+ * @brief Write data to display ram.
+ * @param[in] spi_handle  A spi device handle structure.
+ * @todo Add parameter(s) for data in.
+ */
+static void display_write_to_ram(spi_device_handle_t spi_handle)
+{
+    // set x address counter
+    display_write_command(spi_handle, 0x4E);
+    uint8_t x_address[] = {0x00};
+    display_write_data(spi_handle, x_address, 1);
+
+    // set y address counter
+    display_write_command(spi_handle, 0x4F);
+    uint8_t y_address[] = {0x00};
+    display_write_data(spi_handle, y_address, 1);
+
+    // write to ram (clear screen for now)
+    display_write_command(spi_handle, 0x24);
+    // one row at a time to avoid excessive spi transfer size
+    for (uint8_t i = 0; i < DISPLAY_HEIGHT; i++) {
+        uint8_t data[DISPLAY_WIDTH / BITS_PER_BYTE];
+        for (uint16_t j = 0; j < DISPLAY_WIDTH / BITS_PER_BYTE; j++)
+        {
+            data[j] = 0xFF;
+        }
+        display_write_data(spi_handle, data, DISPLAY_WIDTH / BITS_PER_BYTE);
+    }
+
+    // set softstart
+}
+
+/*!
+ * @brief Initializes display settings and clears the screen.
+ * @return Esp error code. 
+ */
+esp_err_t display_initialize(void)
+{
+    esp_err_t err = ESP_OK;
+
+    // initialize gpio
+    err = display_initialize_gpio();
+    if (err != ESP_OK)
+    {
+        return err;
+    }
+
+    // initialize spi bus
+    spi_device_handle_t spi_handle;
+    err = display_initialize_spi(&spi_handle);
+    if (err != ESP_OK)
+    {
+        return err;
+    }
+
+    // set initial configuration
+    display_reset(spi_handle);
+
+    // send initialization Code
+    display_configure_internals(spi_handle);
+
+    // load waveform lut
+    display_set_update_sequence(spi_handle);
+
+    // write image and drive display panel
+    display_write_to_ram(spi_handle);
+    display_update(spi_handle);
+
+    return err;
+}
+
+/*** end of file ***/
