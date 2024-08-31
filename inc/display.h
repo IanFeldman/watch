@@ -39,6 +39,8 @@ typedef struct {
 } image_t;
 
 esp_err_t display_initialize(spi_device_handle_t *p_spi_handle);
-void display_clear(spi_device_handle_t spi_handle);
+void display_clear_ram(spi_device_handle_t spi_handle);
+void display_write_to_ram(spi_device_handle_t spi_handle, image_t image);
+void display_update(spi_device_handle_t spi_handle);
 
 #endif // DISPLAY_H

@@ -9,8 +9,6 @@ static esp_err_t display_initialize_spi(spi_device_handle_t *p_spi_handle);
 static void display_reset(spi_device_handle_t spi_handle);
 static void display_configure_internals(spi_device_handle_t spi_handle);
 static void display_set_update_sequence(spi_device_handle_t spi_handle);
-static void display_write_to_ram(spi_device_handle_t spi_handle, image_t image);
-static void display_update(spi_device_handle_t spi_handle);
 static void display_write_command(spi_device_handle_t spi_handle, uint8_t command);
 static void display_write_data(spi_device_handle_t spi_handle, uint8_t *p_data, uint8_t length);
 
@@ -97,7 +95,7 @@ static esp_err_t display_initialize_spi(spi_device_handle_t *p_spi_handle)
 
 /*!
  * @brief Perform hardware and software reset.
- * @param[in] spi_handle  A spi device handle structure.
+ * @param[in] spi_handle A spi device handle structure.
  * @todo Check for errors
  */
 static void display_reset(spi_device_handle_t spi_handle)
@@ -115,7 +113,7 @@ static void display_reset(spi_device_handle_t spi_handle)
 
 /*!
  * @brief Set gate driver, ram settings, and panel border.
- * @param[in] spi_handle  A spi device handle structure.
+ * @param[in] spi_handle A spi device handle structure.
  */
 static void display_configure_internals(spi_device_handle_t spi_handle)
 {
@@ -161,11 +159,11 @@ static void display_set_update_sequence(spi_device_handle_t spi_handle)
 
 /*!
  * @brief Write data to display ram.
- * @param[in] spi_handle  A spi device handle structure.
+ * @param[in] spi_handle A spi device handle structure.
  * @param[in] image An image structure. p_data must be >= width.
  * @todo Raise error
  */
-static void display_write_to_ram(spi_device_handle_t spi_handle, image_t image)
+void display_write_to_ram(spi_device_handle_t spi_handle, image_t image)
 {
     // check if image goes out of bounds
     if ((image.x + image.w > DISPLAY_WIDTH) || (image.y + image.h > DISPLAY_HEIGHT))
@@ -211,10 +209,10 @@ static void display_write_to_ram(spi_device_handle_t spi_handle, image_t image)
 
 /*!
  * @brief Run display update cycle.
- * @param[in] spi_handle  A spi device handle structure.
+ * @param[in] spi_handle A spi device handle structure.
  * @todo Ensure await busy loop will not get stuck.
  */
-static void display_update(spi_device_handle_t spi_handle)
+void display_update(spi_device_handle_t spi_handle)
 {
     // activate display update sequence
     display_write_command(spi_handle, 0x20);
@@ -299,12 +297,17 @@ esp_err_t display_initialize(spi_device_handle_t *p_spi_handle)
     display_set_update_sequence(*p_spi_handle);
 
     // clear screen
-    display_clear(*p_spi_handle);
+    display_clear_ram(*p_spi_handle);
+    display_update(*p_spi_handle);
+    display_clear_ram(*p_spi_handle);
 
     return err;
 }
 
-void display_clear(spi_device_handle_t spi_handle) {
+/*!
+ * @brief Sets the ram of the display to all ones.
+ */
+void display_clear_ram(spi_device_handle_t spi_handle) {
     // create blank image, one row long
     uint8_t p_data[DISPLAY_WIDTH / BITS_PER_BYTE];
     memset(p_data, 0xFF, sizeof(p_data));
@@ -313,7 +316,6 @@ void display_clear(spi_device_handle_t spi_handle) {
     };
     // set ram and update
     display_write_to_ram(spi_handle, blank);
-    display_update(spi_handle);
 }
 
 /*** end of file ***/
