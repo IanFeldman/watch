@@ -1,5 +1,18 @@
 #include "display.h"
+#include "font.h"
 #include <driver/gpio.h>
+#include <string.h>
+
+// static functions
+static esp_err_t display_initialize_gpio(void);
+static esp_err_t display_initialize_spi(spi_device_handle_t *p_spi_handle);
+static void display_reset(spi_device_handle_t spi_handle);
+static void display_configure_internals(spi_device_handle_t spi_handle);
+static void display_set_update_sequence(spi_device_handle_t spi_handle);
+static void display_write_to_ram(spi_device_handle_t spi_handle, image_t image);
+static void display_update(spi_device_handle_t spi_handle);
+static void display_write_command(spi_device_handle_t spi_handle, uint8_t command);
+static void display_write_data(spi_device_handle_t spi_handle, uint8_t *p_data, uint8_t length);
 
 /*!
  * @brief Initialize D/C#, reset, and busy gpio pins.
@@ -38,7 +51,6 @@ static esp_err_t display_initialize_gpio(void)
 
     return err;
 }
-
 
 /*!
  * @brief Initialize spi bus for communicating with display.
@@ -81,46 +93,6 @@ static esp_err_t display_initialize_spi(spi_device_handle_t *p_spi_handle)
     }
 
     return ESP_OK;
-}
-
-/*!
- * @brief Write a command to the display.
- * @param[in] spi_handle  A spi device handle structure.
- * @param[in] command     An 8-bit command code.
- */
-static void display_write_command(spi_device_handle_t spi_handle, uint8_t command)
-{
-    // Set D/C# low for command mode
-    gpio_set_level(DC_PIN, 0);
-    // setup transaction
-    spi_transaction_t transaction = {
-        .length = BITS_PER_BYTE,
-        .tx_buffer = &command
-    };
-    esp_err_t err = spi_device_transmit(spi_handle, &transaction);
-    if (err != ESP_OK) {
-        printf("SPI transmission failed\n");
-    }
-}
-
-/*!
- * @brief Write data to the display.
- * @param[in] spi_handle  A spi device handle structure.
- * @param[in] p_data      A pointer to a byte array.
- * @param[in] length      The number of bytes to write.
- */
-static void display_write_data(spi_device_handle_t spi_handle, uint8_t *p_data, uint8_t length)
-{
-    // Set D/C# high for data mode
-    gpio_set_level(DC_PIN, 1);
-    spi_transaction_t transaction = {
-        .length = BITS_PER_BYTE * length,
-        .tx_buffer = p_data
-    };
-    esp_err_t err = spi_device_transmit(spi_handle, &transaction);
-    if (err != ESP_OK) {
-        printf("SPI transmission failed\n");
-    }
 }
 
 /*!
@@ -174,6 +146,70 @@ static void display_configure_internals(spi_device_handle_t spi_handle)
 }
 
 /*!
+ * @brief Configure update sequence and update screen.
+ * @param[in] spi_handle  A spi device handle structure.
+ * @todo Set softstart
+ */
+static void display_set_update_sequence(spi_device_handle_t spi_handle)
+{
+    // set display update sequence
+    display_write_command(spi_handle, 0x22);
+    uint8_t update_sequence[] = {0xFF};
+    display_write_data(spi_handle, update_sequence, sizeof(update_sequence));
+    display_update(spi_handle);
+}
+
+/*!
+ * @brief Write data to display ram.
+ * @param[in] spi_handle  A spi device handle structure.
+ * @param[in] image An image structure. p_data must be >= width.
+ * @todo Raise error
+ */
+static void display_write_to_ram(spi_device_handle_t spi_handle, image_t image)
+{
+    // check if image goes out of bounds
+    if ((image.x + image.w > DISPLAY_WIDTH) || (image.y + image.h > DISPLAY_HEIGHT))
+    {
+        printf("Image size exceeds display bounds.\n");
+        return;
+    }
+
+    // check that theres at least enough data to fill one row
+    uint8_t row_size_bytes = (image.w + BITS_PER_BYTE - 1) / BITS_PER_BYTE;
+    if (image.size < row_size_bytes)
+    {
+        printf("Not enough image data to support dimensions.\n");
+        return;
+    }
+
+    // write to ram one row at aa time
+    uint8_t *p_data_pos = image.p_data;
+    for (uint8_t i = 0; i < image.h; i++)
+    {
+        // set x address counter
+        display_write_command(spi_handle, 0x4E);
+        uint8_t x_address[] = {image.x / BITS_PER_BYTE};
+        display_write_data(spi_handle, x_address, sizeof(x_address));
+
+        // set y address counter
+        display_write_command(spi_handle, 0x4F);
+        uint8_t y_address[] = {image.y + i};
+        display_write_data(spi_handle, y_address, sizeof(y_address));
+
+        // write row to ram
+        display_write_command(spi_handle, 0x24);
+        display_write_data(spi_handle, p_data_pos, row_size_bytes);
+        p_data_pos += row_size_bytes;
+
+        // wrap data to repeat rows if necessary
+        if (p_data_pos - image.p_data >= image.size)
+        {
+            p_data_pos = image.p_data;
+        }
+    }
+}
+
+/*!
  * @brief Run display update cycle.
  * @param[in] spi_handle  A spi device handle structure.
  * @todo Ensure await busy loop will not get stuck.
@@ -192,56 +228,50 @@ static void display_update(spi_device_handle_t spi_handle)
 }
 
 /*!
- * @brief Configure and activate update sequence.
+ * @brief Write a command to the display.
  * @param[in] spi_handle  A spi device handle structure.
+ * @param[in] command     An 8-bit command code.
  */
-static void display_set_update_sequence(spi_device_handle_t spi_handle)
+static void display_write_command(spi_device_handle_t spi_handle, uint8_t command)
 {
-    // set display update sequence
-    display_write_command(spi_handle, 0x22);
-    uint8_t update_sequence[] = {0xFF};
-    display_write_data(spi_handle, update_sequence, 1);
-    // update
-    display_update(spi_handle);
+    // Set D/C# low for command mode
+    gpio_set_level(DC_PIN, 0);
+    // setup transaction
+    spi_transaction_t transaction = {
+        .length = BITS_PER_BYTE,
+        .tx_buffer = &command
+    };
+    esp_err_t err = spi_device_transmit(spi_handle, &transaction);
+    if (err != ESP_OK) {
+        printf("SPI transmission failed\n");
+    }
 }
 
 /*!
- * @brief Write data to display ram.
+ * @brief Write data to the display.
  * @param[in] spi_handle  A spi device handle structure.
- * @todo Add parameter(s) for data in.
+ * @param[in] p_data      A pointer to a byte array.
+ * @param[in] length      The number of bytes to write.
  */
-static void display_write_to_ram(spi_device_handle_t spi_handle)
+static void display_write_data(spi_device_handle_t spi_handle, uint8_t *p_data, uint8_t length)
 {
-    // set x address counter
-    display_write_command(spi_handle, 0x4E);
-    uint8_t x_address[] = {0x00};
-    display_write_data(spi_handle, x_address, 1);
-
-    // set y address counter
-    display_write_command(spi_handle, 0x4F);
-    uint8_t y_address[] = {0x00};
-    display_write_data(spi_handle, y_address, 1);
-
-    // write to ram (clear screen for now)
-    display_write_command(spi_handle, 0x24);
-    // one row at a time to avoid excessive spi transfer size
-    for (uint8_t i = 0; i < DISPLAY_HEIGHT; i++) {
-        uint8_t data[DISPLAY_WIDTH / BITS_PER_BYTE];
-        for (uint16_t j = 0; j < DISPLAY_WIDTH / BITS_PER_BYTE; j++)
-        {
-            data[j] = 0xFF;
-        }
-        display_write_data(spi_handle, data, DISPLAY_WIDTH / BITS_PER_BYTE);
+    // Set D/C# high for data mode
+    gpio_set_level(DC_PIN, 1);
+    spi_transaction_t transaction = {
+        .length = BITS_PER_BYTE * length,
+        .tx_buffer = p_data
+    };
+    esp_err_t err = spi_device_transmit(spi_handle, &transaction);
+    if (err != ESP_OK) {
+        printf("SPI transmission failed\n");
     }
-
-    // set softstart
 }
 
 /*!
  * @brief Initializes display settings and clears the screen.
  * @return Esp error code. 
  */
-esp_err_t display_initialize(void)
+esp_err_t display_initialize(spi_device_handle_t *p_spi_handle)
 {
     esp_err_t err = ESP_OK;
 
@@ -253,27 +283,37 @@ esp_err_t display_initialize(void)
     }
 
     // initialize spi bus
-    spi_device_handle_t spi_handle;
-    err = display_initialize_spi(&spi_handle);
+    err = display_initialize_spi(p_spi_handle);
     if (err != ESP_OK)
     {
         return err;
     }
 
     // set initial configuration
-    display_reset(spi_handle);
+    display_reset(*p_spi_handle);
 
-    // send initialization Code
-    display_configure_internals(spi_handle);
+    // send initialization code
+    display_configure_internals(*p_spi_handle);
 
     // load waveform lut
-    display_set_update_sequence(spi_handle);
+    display_set_update_sequence(*p_spi_handle);
 
-    // write image and drive display panel
-    display_write_to_ram(spi_handle);
-    display_update(spi_handle);
+    // clear screen
+    display_clear(*p_spi_handle);
 
     return err;
+}
+
+void display_clear(spi_device_handle_t spi_handle) {
+    // create blank image, one row long
+    uint8_t p_data[DISPLAY_WIDTH / BITS_PER_BYTE];
+    memset(p_data, 0xFF, sizeof(p_data));
+    image_t blank = {
+        0U, 0U, 200U, 200U, p_data, sizeof(p_data)
+    };
+    // set ram and update
+    display_write_to_ram(spi_handle, blank);
+    display_update(spi_handle);
 }
 
 /*** end of file ***/

@@ -19,11 +19,26 @@
 #define MOSI_PIN  GPIO_NUM_10
 #define SCLK_PIN  GPIO_NUM_15
 
+#ifdef DEV_BUILD
+#undef SCLK_PIN
+#define SCLK_PIN GPIO_NUM_18
+#endif // DEV_BUILD
+
 #define RESET_DELAY_MS 10
 #define AWAIT_BUSY_DELAY_MS 250
 
 #define BITS_PER_BYTE 8
 
-esp_err_t display_initialize();
+typedef struct {
+    uint8_t x;              // pixel x position
+    uint8_t y;              // pixel y position
+    uint8_t w;              // pixel width
+    uint8_t h;              // pixel height
+    const uint8_t *p_data;  // image data, one bit per pixel
+    const uint16_t size;
+} image_t;
+
+esp_err_t display_initialize(spi_device_handle_t *p_spi_handle);
+void display_clear(spi_device_handle_t spi_handle);
 
 #endif // DISPLAY_H

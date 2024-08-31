@@ -5,3 +5,5 @@ idf_component_register(
          ${SOURCES}
     INCLUDE_DIRS "."
                  "../inc")
+
+target_compile_definitions(${COMPONENT_LIB} PRIVATE DEV_BUILD=1)
