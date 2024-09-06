@@ -1,5 +1,6 @@
 #include "display.h"
 #include "font.h"
+#include "util.h"
 #include <driver/gpio.h>
 #include <string.h>
 
@@ -161,48 +162,70 @@ static void display_set_update_sequence(spi_device_handle_t spi_handle)
  * @brief Write data to display ram.
  * @param[in] spi_handle A spi device handle structure.
  * @param[in] image An image structure. p_data must be >= width.
+ * @param[in] scale An integer scalar for image dimensions
  * @todo Raise error
  */
-void display_write_to_ram(spi_device_handle_t spi_handle, image_t image)
+void display_write_to_ram(spi_device_handle_t spi_handle, image_t image, uint8_t scale)
 {
+    if (image.p_data == NULL) {
+        printf("Image data pointer is NULL.\n");
+        return;
+    }
+
     // check if image goes out of bounds
-    if ((image.x + image.w > DISPLAY_WIDTH) || (image.y + image.h > DISPLAY_HEIGHT))
+    if ((image.x + image.w * scale > DISPLAY_WIDTH) ||
+        (image.y + image.h * scale > DISPLAY_HEIGHT))
     {
         printf("Image size exceeds display bounds.\n");
         return;
     }
 
     // check that theres at least enough data to fill one row
-    uint8_t row_size_bytes = (image.w + BITS_PER_BYTE - 1) / BITS_PER_BYTE;
-    if (image.size < row_size_bytes)
+    uint8_t row_size_bytes = util_ceiling_divide(image.w, BITS_PER_BYTE);
+    if (image.w * image.h < row_size_bytes)
     {
         printf("Not enough image data to support dimensions.\n");
         return;
     }
 
-    // write to ram one row at aa time
-    uint8_t *p_data_pos = image.p_data;
+    // calculate the scaled row size
+    uint8_t row_size_bytes_scaled = util_ceiling_divide(image.w * scale, BITS_PER_BYTE);
+
+    // write to ram one row at a time
+    uint8_t *p_row;
     for (uint8_t i = 0; i < image.h; i++)
     {
-        // set x address counter
-        display_write_command(spi_handle, 0x4E);
-        uint8_t x_address[] = {image.x / BITS_PER_BYTE};
-        display_write_data(spi_handle, x_address, sizeof(x_address));
-
-        // set y address counter
-        display_write_command(spi_handle, 0x4F);
-        uint8_t y_address[] = {image.y + i};
-        display_write_data(spi_handle, y_address, sizeof(y_address));
-
-        // write row to ram
-        display_write_command(spi_handle, 0x24);
-        display_write_data(spi_handle, p_data_pos, row_size_bytes);
-        p_data_pos += row_size_bytes;
-
         // wrap data to repeat rows if necessary
-        if (p_data_pos - image.p_data >= image.size)
+        if (row_size_bytes * i >= image.w * image.h)
         {
-            p_data_pos = image.p_data;
+            p_row = image.p_data;
+        }
+        else
+        {
+            p_row = image.p_data + row_size_bytes * i;
+        }
+
+        // create scaled row
+        uint8_t p_row_scaled[util_ceiling_divide(DISPLAY_WIDTH, BITS_PER_BYTE)];
+        memset(p_row_scaled, 0, row_size_bytes_scaled);
+        util_bitwise_scale(p_row_scaled, p_row, row_size_bytes, scale);
+
+        // write multiple rows for scaling
+        for (uint8_t h = 0; h < scale; h++)
+        {
+            // set x address counter
+            display_write_command(spi_handle, 0x4E);
+            uint8_t x_address[] = {image.x / BITS_PER_BYTE};
+            display_write_data(spi_handle, x_address, sizeof(x_address));
+
+            // set y address counter
+            display_write_command(spi_handle, 0x4F);
+            uint8_t y_address[] = {image.y + i * scale + h};
+            display_write_data(spi_handle, y_address, sizeof(y_address));
+
+            // write row to ram
+            display_write_command(spi_handle, 0x24);
+            display_write_data(spi_handle, p_row_scaled, row_size_bytes_scaled);
         }
     }
 }
@@ -309,13 +332,12 @@ esp_err_t display_initialize(spi_device_handle_t *p_spi_handle)
  */
 void display_clear_ram(spi_device_handle_t spi_handle) {
     // create blank image, one row long
-    uint8_t p_data[DISPLAY_WIDTH / BITS_PER_BYTE];
-    memset(p_data, 0xFF, sizeof(p_data));
+    uint8_t data[8] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
     image_t blank = {
-        0U, 0U, 200U, 200U, p_data, sizeof(p_data)
+        0, 0, 8U, 8U, data
     };
     // set ram and update
-    display_write_to_ram(spi_handle, blank);
+    display_write_to_ram(spi_handle, blank, DISPLAY_WIDTH / blank.w);
 }
 
 /*** end of file ***/

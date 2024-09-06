@@ -1,7 +1,9 @@
 #include "../inc/display.h"
-#include <stdio.h>
-#include <esp_task_wdt.h>
+#include "../inc/font.h"
 #include <driver/spi_common.h>
+#include <esp_task_wdt.h>
+#include <stdio.h>
+#include <esp_log.h>
 
 void app_main(void)
 {
