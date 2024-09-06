@@ -162,10 +162,11 @@ static void display_set_update_sequence(spi_device_handle_t spi_handle)
  * @brief Write data to display ram.
  * @param[in] spi_handle A spi device handle structure.
  * @param[in] image An image structure. p_data must be >= width.
- * @param[in] scale An integer scalar for image dimensions
+ * @param[in] x The x location of the top left corner of the image.
+ * @param[in] y The y location of the top left corner of the image.
  * @todo Raise error
  */
-void display_write_to_ram(spi_device_handle_t spi_handle, image_t image, uint8_t scale)
+void display_write_to_ram(spi_device_handle_t spi_handle, image_t image, uint8_t x, uint8_t y, uint8_t scale)
 {
     if (image.p_data == NULL) {
         printf("Image data pointer is NULL.\n");
@@ -173,8 +174,8 @@ void display_write_to_ram(spi_device_handle_t spi_handle, image_t image, uint8_t
     }
 
     // check if image goes out of bounds
-    if ((image.x + image.w * scale > DISPLAY_WIDTH) ||
-        (image.y + image.h * scale > DISPLAY_HEIGHT))
+    if ((x + image.w * scale > DISPLAY_WIDTH) ||
+        (y + image.h * scale > DISPLAY_HEIGHT))
     {
         printf("Image size exceeds display bounds.\n");
         return;
@@ -215,12 +216,12 @@ void display_write_to_ram(spi_device_handle_t spi_handle, image_t image, uint8_t
         {
             // set x address counter
             display_write_command(spi_handle, 0x4E);
-            uint8_t x_address[] = {image.x / BITS_PER_BYTE};
+            uint8_t x_address[] = {x / BITS_PER_BYTE};
             display_write_data(spi_handle, x_address, sizeof(x_address));
 
             // set y address counter
             display_write_command(spi_handle, 0x4F);
-            uint8_t y_address[] = {image.y + i * scale + h};
+            uint8_t y_address[] = {y + i * scale + h};
             display_write_data(spi_handle, y_address, sizeof(y_address));
 
             // write row to ram
@@ -334,10 +335,10 @@ void display_clear_ram(spi_device_handle_t spi_handle) {
     // create blank image, one row long
     uint8_t data[8] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
     image_t blank = {
-        0, 0, 8U, 8U, data
+        8U, 8U, data
     };
     // set ram and update
-    display_write_to_ram(spi_handle, blank, DISPLAY_WIDTH / blank.w);
+    display_write_to_ram(spi_handle, blank, 0, 0, DISPLAY_WIDTH / blank.w);
 }
 
 /*** end of file ***/

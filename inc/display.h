@@ -28,8 +28,6 @@
 #define AWAIT_BUSY_DELAY_MS 250
 
 typedef struct {
-    uint8_t x;              // pixel x position
-    uint8_t y;              // pixel y position
     uint8_t w;              // pixel width
     uint8_t h;              // pixel height
     const uint8_t *p_data;  // image data, one bit per pixel
@@ -37,7 +35,7 @@ typedef struct {
 
 esp_err_t display_initialize(spi_device_handle_t *p_spi_handle);
 void display_clear_ram(spi_device_handle_t spi_handle);
-void display_write_to_ram(spi_device_handle_t spi_handle, image_t image, uint8_t scale);
+void display_write_to_ram(spi_device_handle_t spi_handle, image_t image, uint8_t x, uint8_t y, uint8_t scale);
 void display_update(spi_device_handle_t spi_handle);
 
 #endif // DISPLAY_H
