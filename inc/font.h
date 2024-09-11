@@ -3,8 +3,7 @@
 
 #include <stdint.h>
 
-extern const image_t A_8x8;
-extern const image_t B_8x8;
-extern const image_t C_8x8;
+extern image_t characters_6x8[];
+extern const image_t sphere_64x64;
 
 #endif // FONT_H

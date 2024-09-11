@@ -13,4 +13,18 @@ void app_main(void)
     {
         printf("Initialization error: %04x\n", err);
     }
+
+    display_write_to_ram(spi_handle, characters_6x8['H'], 10, 10, 4);
+    display_write_to_ram(spi_handle, characters_6x8['E'], 50, 10, 4);
+    display_write_to_ram(spi_handle, characters_6x8['L'], 90, 10, 4);
+    display_write_to_ram(spi_handle, characters_6x8['L'], 130, 10, 4);
+    display_write_to_ram(spi_handle, characters_6x8['O'], 170, 10, 4);
+
+    display_write_to_ram(spi_handle, characters_6x8['W'], 10, 50, 4);
+    display_write_to_ram(spi_handle, characters_6x8['O'], 50, 50, 4);
+    display_write_to_ram(spi_handle, characters_6x8['R'], 90, 50, 4);
+    display_write_to_ram(spi_handle, characters_6x8['L'], 130, 50, 4);
+    display_write_to_ram(spi_handle, characters_6x8['D'], 170, 50, 4);
+
+    display_update(spi_handle);
 }

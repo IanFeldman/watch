@@ -22,14 +22,15 @@ uint32_t util_ceiling_divide(uint32_t dividend, uint32_t divisor)
 
 
 /*!
- * @brief Dupicate each bit in the source array into the destination array. Assume
- *        the destination is large enough to fit the scaled source.
+ * @brief Duplicate each bit in the source array into the destination array. Start from a bit offset
+          in the source array. Assume the destination is large enough to fit the scaled source.
  * @param[out] dest 8-bit scaled array.
  * @param[in] src 8-bit unscaled input array.
+ * @param[in] src_bit_offset Number of bits from the left that the source array starts on.
  * @param[in] length The length of src in bytes.
  * @param[in] scale The scale factor to be applied.
  */
-void util_bitwise_scale(uint8_t *dest, uint8_t *src, uint32_t length, uint32_t scale)
+void util_bitwise_scale(uint8_t *dest, uint8_t *src, uint8_t src_bit_offset, uint32_t length, uint32_t scale)
 {
     uint32_t dest_byte_idx = 0;
     uint32_t dest_bit_idx  = 0;
@@ -37,8 +38,14 @@ void util_bitwise_scale(uint8_t *dest, uint8_t *src, uint32_t length, uint32_t s
     // iterate over bytes
     for (uint32_t i = 0; i < length; i++)
     {
+        uint8_t j = 0x80;
+        // apply src bit offset if this is byte 0
+        if (i == 0)
+        {
+            j >>= src_bit_offset;
+        }
         // iterate over bits left to right
-        for (uint8_t j = 0x80; j >= 0x01; j >>= 1U)
+        for (; j >= 0x01; j >>= 1U)
         {
             uint32_t src_bit = src[i] & j;
 

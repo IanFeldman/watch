@@ -168,6 +168,7 @@ static void display_set_update_sequence(spi_device_handle_t spi_handle)
  */
 void display_write_to_ram(spi_device_handle_t spi_handle, image_t image, uint8_t x, uint8_t y, uint8_t scale)
 {
+    // check if image exists
     if (image.p_data == NULL) {
         printf("Image data pointer is NULL.\n");
         return;
@@ -181,35 +182,20 @@ void display_write_to_ram(spi_device_handle_t spi_handle, image_t image, uint8_t
         return;
     }
 
-    // check that theres at least enough data to fill one row
+    // calculate sizes
     uint8_t row_size_bytes = util_ceiling_divide(image.w, BITS_PER_BYTE);
-    if (image.w * image.h < row_size_bytes)
-    {
-        printf("Not enough image data to support dimensions.\n");
-        return;
-    }
-
-    // calculate the scaled row size
     uint8_t row_size_bytes_scaled = util_ceiling_divide(image.w * scale, BITS_PER_BYTE);
 
     // write to ram one row at a time
-    uint8_t *p_row;
     for (uint8_t i = 0; i < image.h; i++)
     {
-        // wrap data to repeat rows if necessary
-        if (row_size_bytes * i >= image.w * image.h)
-        {
-            p_row = image.p_data;
-        }
-        else
-        {
-            p_row = image.p_data + row_size_bytes * i;
-        }
+        uint16_t row_byte_idx = (image.w * i) / BITS_PER_BYTE;
+        uint8_t row_bit_idx = (image.w * i) - (BITS_PER_BYTE * row_byte_idx);
 
         // create scaled row
         uint8_t p_row_scaled[util_ceiling_divide(DISPLAY_WIDTH, BITS_PER_BYTE)];
-        memset(p_row_scaled, 0, row_size_bytes_scaled);
-        util_bitwise_scale(p_row_scaled, p_row, row_size_bytes, scale);
+        memset(p_row_scaled, 0xFF, row_size_bytes_scaled);
+        util_bitwise_scale(p_row_scaled, image.p_data + row_byte_idx, row_bit_idx, row_size_bytes, scale);
 
         // write multiple rows for scaling
         for (uint8_t h = 0; h < scale; h++)
