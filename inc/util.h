@@ -23,53 +23,51 @@ uint32_t util_ceiling_divide(uint32_t dividend, uint32_t divisor)
 
 /*!
  * @brief Duplicate each bit in the source array into the destination array. Start from a bit offset
-          in the source array. Assume the destination is large enough to fit the scaled source.
+          in the source array. Assume the destination is large enough to fit the scaled source and is
+          initialized to all 0xFF.
  * @param[out] dest 8-bit scaled array.
  * @param[in] src 8-bit unscaled input array.
  * @param[in] src_bit_offset Number of bits from the left that the source array starts on.
- * @param[in] length The length of src in bytes.
+ * @param[in] src_bit_len The length of src in bits.
  * @param[in] scale The scale factor to be applied.
  */
-void util_bitwise_scale(uint8_t *dest, uint8_t *src, uint8_t src_bit_offset, uint32_t length, uint32_t scale)
+void util_bitwise_scale(uint8_t *dest, uint8_t *src, uint8_t src_bit_offset, uint32_t src_bit_len, uint32_t scale)
 {
+    uint32_t src_byte_idx = 0;
+    uint32_t src_bit_idx = src_bit_offset;
     uint32_t dest_byte_idx = 0;
-    uint32_t dest_bit_idx  = 0;
+    uint32_t dest_bit_idx = 0;
+    uint32_t src_bit_counter = 0;
 
-    // iterate over bytes
-    for (uint32_t i = 0; i < length; i++)
+    while (src_bit_counter < src_bit_len)
     {
-        uint8_t j = 0x80;
-        // apply src bit offset if this is byte 0
-        if (i == 0)
-        {
-            j >>= src_bit_offset;
-        }
-        // iterate over bits left to right
-        for (; j >= 0x01; j >>= 1U)
-        {
-            uint32_t src_bit = src[i] & j;
+        // get source bit value
+        uint32_t src_bit_val = src[src_byte_idx] & (0x80 >> src_bit_idx);
 
-            // copy bit into destination k times
-            for (uint32_t k = 0; k < scale; k++)
+        // duplicate value into dest
+        for (uint32_t i = 0; i < scale; i++)
+        {
+            if (!src_bit_val)
             {
-                uint8_t dest_bit = 0x80 >> dest_bit_idx;
-                if (src_bit)
-                {
-                    dest[dest_byte_idx] |= dest_bit;
-                }
-                else
-                {
-                    dest[dest_byte_idx] &= ~dest_bit;
-                }
+                dest[dest_byte_idx] &= ~(0x80 >> dest_bit_idx);
+            }
 
-                // check if we are on the next byte
-                if (++dest_bit_idx >= BITS_PER_BYTE)
-                {
-                    dest_byte_idx++;
-                    dest_bit_idx = 0;
-                }
+            // increment destination bit
+            if (++dest_bit_idx == BITS_PER_BYTE)
+            {
+                dest_bit_idx = 0;
+                dest_byte_idx++;
             }
         }
+
+        // increment source bit
+        if (++src_bit_idx == BITS_PER_BYTE)
+        {
+            src_bit_idx = 0;
+            src_byte_idx++;
+        }
+
+        src_bit_counter++;
     }
 }
 

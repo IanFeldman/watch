@@ -195,7 +195,7 @@ void display_write_to_ram(spi_device_handle_t spi_handle, image_t image, uint8_t
         // create scaled row
         uint8_t p_row_scaled[util_ceiling_divide(DISPLAY_WIDTH, BITS_PER_BYTE)];
         memset(p_row_scaled, 0xFF, row_size_bytes_scaled);
-        util_bitwise_scale(p_row_scaled, image.p_data + row_byte_idx, row_bit_idx, row_size_bytes, scale);
+        util_bitwise_scale(p_row_scaled, image.p_data + row_byte_idx, row_bit_idx, image.w, scale);
 
         // write multiple rows for scaling
         for (uint8_t h = 0; h < scale; h++)
