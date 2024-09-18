@@ -119,3 +119,29 @@ const image_t sphere_64x64 = {
         0xff, 0xff, 0xff, 0x0, 0x0, 0xff, 0xff, 0xff, 
     }
 };
+
+
+/*!
+ * @brief Write string of characters to ram.
+ * @param[in] spi_handle A spi device handle structure.
+ * @param[in] string A string with null terminator.
+ * @param[in] x The x location of the string.
+ * @param[in] y The y location of the string.
+ * @param[in] scale The scale factor of the characters.
+ * @param[in] spacing The number of pixels between characters (unscaled).
+ */
+void font_write_string(spi_device_handle_t spi_handle, uint8_t string[], uint8_t x, uint8_t y, uint8_t scale, uint8_t spacing)
+{
+    const uint8_t CHAR_WIDTH = 6U;
+    uint8_t p_char = string;
+    while (*p_char != '\0')
+    {
+        display_write_to_ram(spi_handle, characters_6x8[*p_char], x, y, scale);
+        x += CHAR_WIDTH + spacing;
+        if (x >= DISPLAY_WIDTH)
+        {
+            return;
+        }
+    }
+}
+
